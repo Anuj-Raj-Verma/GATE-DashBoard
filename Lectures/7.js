@@ -1,22 +1,23 @@
 /* ======================================================
+   CHAPTER IDENTIFIER (CHANGE PER PAGE)
+====================================================== */
+const CHAPTER_KEY = "communication-systems"; 
+// e.g. "network-theory", "signals-systems", etc.
+
+
+/* ======================================================
    LECTURE VIDEO CONTROLLER
 ====================================================== */
 
-// Grab elements
 const videoButtons = document.querySelectorAll(".video-btn");
 const videoPlayer  = document.getElementById("videoPlayer");
 const placeholder  = document.querySelector(".player-placeholder");
 
-/*
-Expected HTML for each button:
-<button class="video-btn" data-video-id="YOUTUBE_VIDEO_ID">
-    Lecture 1: Topic Name
-</button>
-*/
+const LAST_VIDEO_KEY = `last-video-${CHAPTER_KEY}`;
 
 
 /* ======================================================
-   LOAD VIDEO (FIXED FOR YOUTUBE ERROR 153)
+   LOAD VIDEO (YOUTUBE SAFE)
 ====================================================== */
 
 function loadVideo(videoId) {
@@ -39,27 +40,22 @@ function loadVideo(videoId) {
 videoButtons.forEach(btn => {
     btn.addEventListener("click", () => {
 
-        // Remove active state from all buttons
         videoButtons.forEach(b => b.classList.remove("active"));
-
-        // Activate clicked button
         btn.classList.add("active");
 
-        // Load video
         const videoId = btn.dataset.videoId;
         loadVideo(videoId);
 
-        // Save last watched
-        localStorage.setItem("last-lecture-video", videoId);
+        localStorage.setItem(LAST_VIDEO_KEY, videoId);
     });
 });
 
 
 /* ======================================================
-   RESTORE LAST WATCHED VIDEO
+   RESTORE LAST WATCHED (PER CHAPTER)
 ====================================================== */
 
-const LAST_VIDEO_KEY = "last-lecture-video";
+const lastVideo = localStorage.getItem(LAST_VIDEO_KEY);
 
 if (lastVideo) {
     loadVideo(lastVideo);

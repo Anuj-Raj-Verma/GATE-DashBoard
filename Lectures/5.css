@@ -46,6 +46,9 @@ body {
     border-radius: 16px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     color: var(--text-accent);
+    position: relative;
+
+
 }
 
 .lectures-header h1 {
@@ -58,6 +61,18 @@ body {
     color: #ffffff;
     opacity: 0.9;
 }
+
+.theme-toggle {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-accent);
+}
+
 
 /* ================= LAYOUT ================= */
 .lectures-layout {
@@ -185,14 +200,15 @@ body {
 
 .lecture-sidebar {
     width: 320px;
-    height: 520px;               /* fixed height */
-    background: #ffffff;
+    height: 520px;
+    background: var(--bg-card);
     border-radius: 14px;
     padding: 20px;
     box-shadow: 0 10px 28px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
 }
+
 
 .video-list-wrapper {
     margin-top: 16px;
@@ -227,8 +243,8 @@ body {
     margin-bottom: 8px;
     border-radius: 8px;
     border: none;
-    background: #0a174e;
-    color: #facc15;
+    background: var(--bg-accent);
+    color: var(--text-accent);
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }

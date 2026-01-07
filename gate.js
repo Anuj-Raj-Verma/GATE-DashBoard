@@ -480,12 +480,12 @@ function checkMorningLock() {
     }
 }
 
-// checkMorningLock();
+checkMorningLock();
 
 /* Recheck when a task is added */
-// addTaskBtn.addEventListener("click", () => {
-//     setTimeout(checkMorningLock, 100);
-// });
+addTaskBtn.addEventListener("click", () => {
+    setTimeout(checkMorningLock, 100);
+});
 
 
 /*********         SCROLL BUTTON         ************ */

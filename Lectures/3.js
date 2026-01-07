@@ -82,3 +82,26 @@ if (lastVideo) {
         }, 300);
     }
 }
+
+/* ======================================================
+   DARK MODE (LECTURES)
+====================================================== */
+
+const themeToggle = document.getElementById("themeToggle");
+const THEME_KEY = "gate-theme"; // same key as main site
+
+// Load saved theme
+const savedTheme = localStorage.getItem(THEME_KEY);
+if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    themeToggle.textContent = "☀️";
+}
+
+// Toggle theme
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    const isDark = document.body.classList.contains("dark");
+    localStorage.setItem(THEME_KEY, isDark ? "dark" : "light");
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+});

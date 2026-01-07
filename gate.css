@@ -1255,44 +1255,6 @@ body.dark
 
 
 
-#focusStrip {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: 100vh;
-    background: #9ca3af; /* default gray */
-    transition: background 0.4s ease, box-shadow 0.4s ease;
-    z-index: 999;
-}
-
-/* States */
-.focus-idle {
-    background: #6b7280;
-}
-
-.focus-planned {
-    background: #facc15;
-}
-
-.focus-progress {
-    background: #22c55e;
-    box-shadow: 0 0 12px rgba(34,197,94,0.5);
-}
-
-.focus-complete {
-    background: #16a34a;
-    box-shadow: 0 0 20px rgba(22,163,74,0.8);
-}
-
-.focus-warning {
-    background: linear-gradient(
-        to bottom,
-        #ef4444,
-        #22c55e
-    );
-}
-
 #weakList li::before,
 #revisionList li::before,
 #mistakeList li::before {
@@ -1307,3 +1269,18 @@ body.dark
 
 
 
+/* Footer author link */
+.footer-author {
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.footer-author:hover {
+    color: var(--text-accent);
+}
+
+/* Dark mode override (explicit) */
+body.dark .footer-author {
+    color: var(--text-main);
+}

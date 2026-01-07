@@ -509,58 +509,6 @@ backToTopBtn.addEventListener("click", () => {
 });
 
 
-/* ======================================================
-   FOCUS MODE (NAV BAR CONTROL)
-====================================================== */
-
-const focusToggle = document.getElementById("focusToggle");
-const FOCUS_KEY = "focus-mode";
-
-/* Sections to hide in focus mode */
-const focusHideSelectors = [
-    ".quick-access",
-    ".weekly-weak",
-    ".revision-log",
-    ".mock-analysis",
-    ".mistake-log",
-    ".rules",
-    ".daily-output"
-];
-
-/* Apply focus mode */
-function applyFocusMode(active) {
-    focusHideSelectors.forEach(selector => {
-        const section = document.querySelector(selector);
-        if (section) {
-            section.style.display = active ? "none" : "";
-        }
-    });
-
-    if (active) {
-        document.body.classList.add("focus-mode");
-        focusToggle.textContent = "⛔ Exit Focus";
-        localStorage.setItem(FOCUS_KEY, "on");
-    } else {
-        document.body.classList.remove("focus-mode");
-        focusToggle.textContent = "🎯 Focus";
-        localStorage.removeItem(FOCUS_KEY);
-    }
-}
-
-/* Load saved focus state */
-if (localStorage.getItem(FOCUS_KEY) === "on") {
-    applyFocusMode(true);
-}
-
-/* Toggle handler */
-focusToggle.addEventListener("click", () => {
-    const isActive = document.body.classList.contains("focus-mode");
-    applyFocusMode(!isActive);
-});
-
-
-
-
 
 /* ======================================================
    TODAY VISUAL MARKER

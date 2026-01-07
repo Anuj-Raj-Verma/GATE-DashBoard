@@ -13,6 +13,9 @@ const videoButtons = document.querySelectorAll(".video-btn");
 const videoPlayer  = document.getElementById("videoPlayer");
 const placeholder  = document.querySelector(".player-placeholder");
 
+/* 🔹 NEW: scroll container (the list wrapper) */
+const videoListWrapper = document.querySelector(".video-list-wrapper");
+
 const LAST_VIDEO_KEY = `last-video-${CHAPTER_KEY}`;
 
 
@@ -52,17 +55,30 @@ videoButtons.forEach(btn => {
 
 
 /* ======================================================
-   RESTORE LAST WATCHED (PER CHAPTER)
+   RESTORE LAST WATCHED + AUTO SCROLL
 ====================================================== */
 
 const lastVideo = localStorage.getItem(LAST_VIDEO_KEY);
 
 if (lastVideo) {
-    loadVideo(lastVideo);
+    let targetButton = null;
 
     videoButtons.forEach(btn => {
         if (btn.dataset.videoId === lastVideo) {
             btn.classList.add("active");
+            targetButton = btn;
         }
     });
+
+    if (targetButton) {
+        loadVideo(lastVideo);
+
+        /* 🔹 NEW: auto-scroll to last watched lecture */
+        setTimeout(() => {
+            targetButton.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }, 300);
+    }
 }

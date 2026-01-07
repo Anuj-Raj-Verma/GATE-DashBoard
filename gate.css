@@ -1,0 +1,1315 @@
+/* ================= THEME VARIABLES ================= */
+:root {
+    --bg-main: #f6f7fb;
+    --bg-card: #ffffff;
+    --bg-accent: #0A174E;
+    --bg-accent-2: #132161;
+
+    --text-main: #0A174E;
+    --text-muted: #555;
+    --text-accent: #F5D042;
+
+    --border-soft: rgba(10, 23, 78, 0.18);
+}
+
+/* ================= DARK MODE ================= */
+body.dark {
+    --bg-main: #0e1117;
+    --bg-card: #161b22;
+    --bg-accent: #1f2937;
+    --bg-accent-2: #111827;
+
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --text-accent: #facc15;
+
+    --border-soft: rgba(255, 255, 255, 0.08);
+}
+
+
+
+/* ================= RESET (FIXED) ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 20px;
+    background: #f6f7fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================= NAV BAR ================= */
+#nav-bar {
+    width: 100%;
+    height: 70px;
+    background-color: #0A174E;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    padding-right: 50px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(10, 23, 78, 0.25);
+}
+
+#nav-bar h1 {
+    position: absolute;
+    left: 40px;
+    color: #F5D042;
+    font-size: 28px;
+}
+
+a {
+    text-decoration: none;
+    color: #F5D042;
+}
+
+button {
+    background-color: #0A174E;
+    border: 1px solid #0A174E;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #F5D042;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(245, 208, 66, 0.5);
+}
+
+button:hover a {
+    color: #0A174E;
+}
+
+.focus-btn {
+    margin-left: 160px; /* creates space from GATE 2028 title */
+    background-color: var(--bg-accent-2);
+    border: 1px solid var(--bg-accent-2);
+    color: var(--text-accent);
+    font-weight: 600;
+}
+
+.focus-btn:hover {
+    background-color: var(--text-accent);
+    color: var(--bg-accent);
+}
+#focusToggle {
+    margin-right: auto;
+    margin-left: 250px;
+}
+
+
+
+/* ================= HERO ================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 80px;
+}
+
+.hero-text h2 {
+    font-size: 64px;
+    margin-bottom: 20px;
+
+    /* base color */
+    color: #0A174E;
+
+    /* hover gradient setup */
+    background: linear-gradient(
+        90deg,
+        #0A174E,
+        #F5D042,
+        #0A174E
+    );
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: background-position 0.6s ease;
+}
+
+.hero-text h2:hover {
+    background-position: 100% 50%;
+}
+
+
+.hero-text p {
+    font-size: 36px;
+    color: #555;
+}
+
+/* ================= PROGRESS CARD ================= */
+.progress-card {
+    width: 380px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(10, 23, 78, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progress-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(10, 23, 78, 0.3);
+}
+
+.progress-card h3 {
+    font-size: 28px;
+    color: #0A174E;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 22px;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #0A174E;
+    transition: width 0.5s ease;
+}
+
+/* ================= TODAY'S FOCUS ================= */
+.today-focus {
+    width: 100%;
+    margin: 20px auto;
+    padding: 30px 40px;
+    background: linear-gradient(135deg, #0A174E, #132161);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(10, 23, 78, 0.35);
+    color: #F5D042;
+}
+
+.today-focus h3 {
+    font-size: 28px;
+    color: #F5D042;
+    margin-bottom: 15px;
+}
+
+#taskList {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+#taskList li {
+    padding: 8px 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.task-input {
+    display: flex;
+    gap: 10px;
+    
+}
+
+.task-input input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+}
+#addTaskBtn {
+    background-color: #F5D042;
+    color: #0A174E;
+}
+
+/* ================= QUICK ACCESS ================= */
+.quick-access {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 40px 60px;
+}
+
+/* ================= COMMON CARD ================= */
+.card {
+    width: 300px;
+    min-height: 520px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    color: #0A174E;
+    box-shadow: 0 10px 28px rgba(10, 23, 78, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(10, 23, 78, 0.35);
+}
+
+.card h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+/* ================= LIST & BUTTONS ================= */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 18.5px;
+    background-color: #0A174E;
+    color: #F5D042;
+    border-radius: 6px;
+    border: none;
+}
+
+.item-btn:hover {
+    background-color: #F5D042;
+    color: #0A174E;
+}
+
+/* ================= CHAPTER DROPDOWNS ================= */
+.chapter {
+    margin-bottom: 10px;
+}
+
+.chapter-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0A174E;
+    color: #F5D042;
+    border-radius: 6px;
+}
+.chapter-btn:hover{
+    color: #0A174E;
+    border: none;
+}
+
+/* .subtopics {
+    list-style: none;
+    margin-top: 6px;
+    padding-left: 10px;
+    display: none;
+}
+
+.subtopics li {
+    font-size: 14px;
+    padding: 6px 0;
+    color: #0A174E;
+    border-bottom: 1px solid rgba(10, 23, 78, 0.15);
+} */
+
+/* ================= FOOTER ================= */
+.footer {
+    margin: 40px 0;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+/* ================= CLEAN SECTION CONTAINERS ================= */
+.weekly-weak,
+.revision-log,
+.mock-analysis,
+.mistake-log,
+.rules {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px 35px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(10, 23, 78, 0.18);
+}
+
+/* Section headings */
+.weekly-weak h3,
+.revision-log h3,
+.mock-analysis h3,
+.mistake-log h3,
+.rules h3 {
+    font-size: 26px;
+    margin-bottom: 18px;
+    color: #0A174E;
+    border-bottom: 2px solid rgba(10,23,78,0.1);
+    padding-bottom: 8px;
+}
+
+/* ================= LISTS ================= */
+#weakList,
+#revisionList,
+#mistakeList,
+.rules ul {
+    list-style: none;
+    margin-bottom: 18px;
+}
+
+#weakList li,
+#revisionList li,
+#mistakeList li,
+.rules li {
+    font-size: 17px;
+    padding: 8px 0;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+}
+
+#weakList li::before,
+#revisionList li::before,
+#mistakeList li::before {
+    content: "•";
+    color: #0A174E;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* ================= INPUT ROWS ================= */
+.weak-input,
+.revision-input,
+.mistake-input,
+.mock-fields {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* Inputs */
+.weak-input input,
+.revision-input input,
+.mistake-input input,
+.mock-fields input {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1.8px solid rgba(10,23,78,0.2);
+}
+
+/* Textareas */
+.mock-analysis textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 1.8px solid rgba(10,23,78,0.2);
+}
+
+/* ================= BUTTONS ================= */
+.weekly-weak button,
+.revision-log button,
+.mock-analysis button,
+.mistake-log button {
+    padding: 10px 16px;
+    font-size: 15px;
+    border-radius: 8px;
+    background-color: #0A174E;
+    color: #F5D042;
+    border: none;
+    cursor: pointer;
+}
+
+.weekly-weak button:hover,
+.revision-log button:hover,
+.mock-analysis button:hover,
+.mistake-log button:hover {
+    background-color: #F5D042;
+    color: #0A174E;
+}
+
+/* Space the clear revision button slightly down */
+#clearRevisionBtn {
+    display: block;
+    margin-top: 12px;
+}
+
+/* ================= STATUS TEXT ================= */
+#weakStatus,
+#revisionStatus,
+#mockStatus {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* ================= MOCK ANALYSIS LAYOUT ================= */
+.mock-analysis {
+    display: flex;
+    flex-direction: column;
+}
+
+.mock-analysis button {
+    align-self: flex-start;
+    margin-top: 10px;
+}
+/* ================= SYLLABUS CARD FIX ================= */
+/* Make syllabus behave exactly like PYQs */
+
+.syllabus-card .list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Neutralize old chapter styling ONLY for syllabus */
+.syllabus-card .chapter,
+.syllabus-card .chapter-btn {
+    all: unset;
+}
+
+/* Ensure syllabus buttons match item buttons */
+.syllabus-card .item-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 18.5px;
+    background-color: #0A174E;
+    color: #F5D042;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Anchor fills button */
+.syllabus-card .item-btn a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+}
+
+/* Hover effect same as PYQs */
+.syllabus-card .item-btn:hover {
+    background-color: #F5D042;
+    color: #0A174E;
+}
+/********************************RESPONSIVE DESIGN********************************/
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h2 {
+        font-size: 48px;
+    }
+
+    .hero-text p {
+        font-size: 24px;
+    }
+
+    .quick-access {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .progress-card,
+    .card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* ================= SYLLABUS PAGE STYLES ================= */
+/* This section ONLY affects syllabus.html */
+
+/* Header */
+.syllabus-header {
+    max-width: 1100px;
+    margin: 40px auto 20px;
+    padding: 30px 35px;
+    background: linear-gradient(135deg, #0A174E, #132161);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(10, 23, 78, 0.35);
+    color: #F5D042;
+}
+
+.syllabus-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.syllabus-header p {
+    font-size: 16px;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+/* Navigation bar inside syllabus page */
+.syllabus-nav {
+    max-width: 1100px;
+    margin: 20px auto 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.syllabus-nav a {
+    padding: 8px 14px;
+    background-color: #0A174E;
+    color: #F5D042;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.syllabus-nav a:hover {
+    background-color: #F5D042;
+    color: #0A174E;
+    transform: translateY(-2px);
+}
+
+/* Syllabus content sections */
+.syllabus-section {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 30px 35px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(10, 23, 78, 0.18);
+    scroll-margin-top: 90px; /* prevents nav overlap */
+}
+
+.syllabus-section h2 {
+    font-size: 26px;
+    color: #0A174E;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(10, 23, 78, 0.1);
+    padding-bottom: 8px;
+}
+
+.syllabus-section ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.syllabus-section li {
+    font-size: 16px;
+    padding: 8px 0;
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+}
+
+.syllabus-section li::before {
+    content: "•";
+    color: #0A174E;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Smooth anchor scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .syllabus-header h1 {
+        font-size: 28px;
+    }
+
+    .syllabus-nav {
+        justify-content: center;
+    }
+
+    .syllabus-section {
+        padding: 24px 20px;
+    }
+}
+
+
+/* ================= THEME VARIABLES ================= */
+:root {
+    --bg-main: #f6f7fb;
+    --bg-card: #ffffff;
+    --bg-accent: #0A174E;
+    --bg-accent-2: #132161;
+
+    --text-main: #0A174E;
+    --text-muted: #555;
+    --text-accent: #F5D042;
+
+    --border-soft: rgba(10, 23, 78, 0.18);
+}
+
+/* ================= DARK MODE ================= */
+body.dark {
+    --bg-main: #0e1117;
+    --bg-card: #161b22;
+    --bg-accent: #1f2937;
+    --bg-accent-2: #111827;
+
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --text-accent: #facc15;
+
+    --border-soft: rgba(255, 255, 255, 0.08);
+}
+
+/* ================= RESET ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 20px;
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================= NAV BAR ================= */
+#nav-bar {
+    width: 100%;
+    height: 70px;
+    background-color: var(--bg-accent);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    padding-right: 50px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+#nav-bar h1 {
+    position: absolute;
+    left: 40px;
+    color: var(--text-accent);
+    font-size: 28px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-accent);
+}
+
+button {
+    background-color: var(--bg-accent);
+    border: 1px solid var(--bg-accent);
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: var(--text-accent);
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--text-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+button:hover a {
+    color: var(--bg-accent);
+}
+
+/* ================= HERO ================= */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 80px;
+}
+
+.hero-text h2 {
+    font-size: 64px;
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        90deg,
+        var(--text-main),
+        var(--text-accent),
+        var(--text-main)
+    );
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: background-position 0.6s ease;
+}
+
+.hero-text h2:hover {
+    background-position: 100% 50%;
+}
+
+.hero-text p {
+    font-size: 36px;
+    color: var(--text-muted);
+}
+
+/* ================= PROGRESS CARD ================= */
+.progress-card {
+    width: 380px;
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progress-card h3 {
+    font-size: 28px;
+    color: var(--text-main);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 22px;
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--bg-accent);
+}
+
+/* ================= TODAY'S FOCUS ================= */
+.today-focus {
+    background: linear-gradient(135deg, var(--bg-accent), var(--bg-accent-2));
+    color: var(--text-accent);
+}
+
+/* ================= COMMON CARD ================= */
+.card {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    color: var(--text-muted);
+}
+
+/* ================= CLEAN SECTIONS ================= */
+.weekly-weak,
+.revision-log,
+.mock-analysis,
+.mistake-log,
+.rules {
+    background: var(--bg-card);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+/* ================= STATUS TEXT ================= */
+#weakStatus,
+#revisionStatus,
+#mockStatus {
+    color: var(--text-muted);
+}
+
+/* ================= SMOOTH SCROLL ================= */
+html {
+    scroll-behavior: smooth;
+}
+.weekly-weak h3,
+.revision-log h3,
+.mock-analysis h3,
+.mistake-log h3,
+.rules h3 {
+    color: var(--text-main);
+}
+#weakList li::before,
+#revisionList li::before,
+#mistakeList li::before {
+    color: var(--text-main);
+}
+#weakStatus,
+#revisionStatus,
+#mockStatus {
+    color: var(--text-muted);
+}
+body.dark {
+    --text-muted: #cbd5e1; /* lighter, readable */
+}
+body.dark .rules li {
+    color: #e5e7eb; /* same as --text-main */
+}
+
+
+body.dark #revisionList li {
+    color: var(--text-main);
+}
+
+
+
+/*==============     Part 3 Slides    =======================*/
+
+
+/* ================= SCROLL REVEAL ================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/*================PART 3=========================*/
+
+/* ================= DAILY OUTPUT ENGINE ================= */
+
+.daily-output {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px 35px;
+    background: var(--bg-card);
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+.daily-output h3 {
+    font-size: 26px;
+    margin-bottom: 18px;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--border-soft);
+    padding-bottom: 8px;
+}
+
+#outputList {
+    list-style: none;
+    margin-bottom: 14px;
+}
+
+#outputList li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 16px;
+    color: var(--text-main);
+}
+
+#outputList input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+#outputList .done {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+#outputStats {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+
+/*=========================Part 4 ======================*/
+
+/* ================= ANTI-PROCRASTINATION LOCK ================= */
+
+#lockOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.lock-box {
+    background: var(--bg-card);
+    padding: 30px 35px;
+    border-radius: 14px;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.lock-box h2 {
+    font-size: 26px;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+
+.lock-box p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Read-only mode visual cue */
+.read-only {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+
+
+/******** SCROLL BUTTON***********/
+
+/* ================= BACK TO TOP BUTTON ================= */
+
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg-accent);
+    color: var(--text-accent);
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    transform: translateY(-4px);
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+
+
+/* ================= SECTION DIVIDER ================= */
+
+.section-divider {
+    height: 1px;
+    width: 100%;
+    max-width: 900px;
+    margin: 70px auto;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--border-soft),
+        transparent
+    );
+}
+
+
+/* ================= SECTION IDENTITY ================= */
+
+.weekly-weak,
+.revision-log,
+.mock-analysis,
+.mistake-log,
+.rules,
+.daily-output {
+    position: relative;
+    padding-left: 42px; /* room for accent bar */
+}
+
+.weekly-weak::before,
+.revision-log::before,
+.mock-analysis::before,
+.mistake-log::before,
+.rules::before,
+.daily-output::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 24px;
+    height: calc(100% - 48px);
+    width: 4px;
+    border-radius: 4px;
+    background: var(--bg-accent);
+    opacity: 0.9;
+}
+
+/* Dark mode: softer but visible */
+body.dark
+.weekly-weak::before,
+body.dark
+.revision-log::before,
+body.dark
+.mock-analysis::before,
+body.dark
+.mistake-log::before,
+body.dark
+.rules::before,
+body.dark
+.daily-output::before {
+    background: var(--text-accent);
+}
+
+
+/* ================= SECTION HOVER EMPHASIS ================= */
+
+.weekly-weak::before,
+.revision-log::before,
+.mock-analysis::before,
+.mistake-log::before,
+.rules::before,
+.daily-output::before {
+    transition: width 0.25s ease, opacity 0.25s ease;
+}
+
+/* On hover: stronger visual anchor */
+.weekly-weak:hover::before,
+.revision-log:hover::before,
+.mock-analysis:hover::before,
+.mistake-log:hover::before,
+.rules:hover::before,
+.daily-output:hover::before {
+    width: 10px;          /* wider, but not obnoxious */
+    opacity: 1;
+}
+
+
+/* ================= SECTION HIERARCHY ================= */
+
+/* Tier 1: Action sections */
+.today-focus,
+.weekly-weak,
+.daily-output {
+    padding: 36px 40px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+/* Stronger left bar for Tier 1 */
+.today-focus::before,
+.weekly-weak::before,
+.daily-output::before {
+    width: 6px;
+}
+
+/* Slightly larger headings */
+.today-focus h3,
+.weekly-weak h3,
+.daily-output h3 {
+    font-size: 28px;
+}
+
+/* Tier 2: Review sections */
+.revision-log,
+.mock-analysis,
+.mistake-log {
+    padding: 28px 34px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
+}
+
+/* Tier 3: Passive rules */
+.rules {
+    padding: 26px 32px;
+    opacity: 0.95;
+}
+
+/* Make rules feel calmer */
+.rules h3 {
+    font-size: 24px;
+}
+
+.rules li {
+    font-size: 15.5px;
+}
+
+/* ================= WEAK AREA CONSEQUENCES ================= */
+
+.weak-warning {
+    color: #f59e0b; /* amber */
+    animation: slowPulse 3s ease-in-out infinite;
+}
+
+.weak-critical {
+    color: #ef4444; /* red */
+    font-weight: 600;
+    animation: slowPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes slowPulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.55; }
+    100% { opacity: 1; }
+}
+
+
+
+
+.weekly-weak,
+.revision-log,
+.mock-analysis,
+.mistake-log,
+.rules,
+.daily-output {
+    position: relative;
+    overflow: hidden;
+}
+
+.weekly-weak::before,
+.revision-log::before,
+.mock-analysis::before,
+.mistake-log::before,
+.rules::before,
+.daily-output::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--bg-accent);
+    transition: width 0.25s ease;
+}
+
+.weekly-weak:hover::before,
+.revision-log:hover::before,
+.mock-analysis:hover::before,
+.mistake-log:hover::before,
+.rules:hover::before,
+.daily-output:hover::before {
+    width: 10px;
+}
+
+.weekly-weak,
+.revision-log,
+.mock-analysis,
+.mistake-log,
+.rules,
+.daily-output {
+    margin: 60px auto;
+}
+
+.hero + .today-focus {
+    margin-top: 80px;
+}
+
+.weekly-weak h3,
+.revision-log h3,
+.mock-analysis h3,
+.mistake-log h3,
+.rules h3,
+.daily-output h3 {
+    letter-spacing: 0.5px;
+}
+.weekly-weak h3::after,
+.revision-log h3::after,
+.mock-analysis h3::after,
+.mistake-log h3::after,
+.rules h3::after,
+.daily-output h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    margin-top: 6px;
+    background: var(--text-accent);
+    border-radius: 2px;
+}
+
+.today-marker {
+    box-shadow: 0 0 0 2px var(--text-accent),
+                0 0 18px rgba(245, 208, 66, 0.25);
+    position: relative;
+}
+
+.today-marker::after {
+    content: "TODAY";
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--text-accent);
+    color: var(--bg-accent);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+
+
+#focusStrip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100vh;
+    background: #9ca3af; /* default gray */
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+    z-index: 999;
+}
+
+/* States */
+.focus-idle {
+    background: #6b7280;
+}
+
+.focus-planned {
+    background: #facc15;
+}
+
+.focus-progress {
+    background: #22c55e;
+    box-shadow: 0 0 12px rgba(34,197,94,0.5);
+}
+
+.focus-complete {
+    background: #16a34a;
+    box-shadow: 0 0 20px rgba(22,163,74,0.8);
+}
+
+.focus-warning {
+    background: linear-gradient(
+        to bottom,
+        #ef4444,
+        #22c55e
+    );
+}
+
+#weakList li::before,
+#revisionList li::before,
+#mistakeList li::before {
+    content: none;
+}
+
+#weakList li,
+#revisionList li,
+#mistakeList li {
+    padding-left: 4px;
+}
+
+
+
+/*===================================================================================================================
+=====================================================================================================================
+##################################################VIDEO LECTURES####################################################*/
+
+
+

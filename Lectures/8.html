@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATE 2028 – Video Lectures</title>
+    <link rel="stylesheet" href="8.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="lectures-header">
+    <h1>Video Lectures</h1>
+    <p>Structured playback. No autoplay chaos.</p>
+</header>
+
+<!-- MAIN LAYOUT -->
+<main class="lectures-layout">
+
+    <!-- LEFT: SUBJECT + VIDEO LIST -->
+    <aside class="lecture-sidebar">
+
+        <div class="subject-title">
+            <h2>Electromagnetic Fields</h2>
+            <a 
+                href="https://www.youtube.com/playlist?list=PL1CE5B4FFFA997E5D"
+                target="_blank">
+                Open full playlist on YouTube
+            </a>
+        </div>
+
+        <div class="video-list-wrapper">
+    <ul class="video-list">
+        <!-- 50 sample lectures -->
+        <!-- I’ll show pattern, you extend -->
+        <li><button class="video-btn" data-video-id="pGdr9WLto4A">Lecture 1</button></li>
+<li><button class="video-btn" data-video-id="NNny9gMh_jo">Lecture 2</button></li>
+<li><button class="video-btn" data-video-id="0A45kt2U3U8">Lecture 3</button></li>
+<li><button class="video-btn" data-video-id="6FZusYyg0Po">Lecture 4</button></li>
+<li><button class="video-btn" data-video-id="MjtmrTH1TsY">Lecture 5</button></li>
+<li><button class="video-btn" data-video-id="nb-iuxOCcB8">Lecture 6</button></li>
+<li><button class="video-btn" data-video-id="whv_d-fBCg0">Lecture 7</button></li>
+<li><button class="video-btn" data-video-id="OiLhX_OBhm8">Lecture 8</button></li>
+<li><button class="video-btn" data-video-id="sQBi0DZYOqY">Lecture 9</button></li>
+<li><button class="video-btn" data-video-id="4SCINIKccbA">Lecture 10</button></li>
+
+<li><button class="video-btn" data-video-id="5z4jfhYFK08">Lecture 11</button></li>
+<li><button class="video-btn" data-video-id="CXPMba3qUag">Lecture 12</button></li>
+<li><button class="video-btn" data-video-id="Zhm3NJIixPg">Lecture 13</button></li>
+<li><button class="video-btn" data-video-id="bow4rworT-k">Lecture 14</button></li>
+<li><button class="video-btn" data-video-id="7YbLDlbv17w">Lecture 15</button></li>
+<li><button class="video-btn" data-video-id="azY5Y5yZ6S8">Lecture 16</button></li>
+<li><button class="video-btn" data-video-id="yVorHR_yJ6w">Lecture 17</button></li>
+<li><button class="video-btn" data-video-id="aaWG_6WCkTA">Lecture 18</button></li>
+<li><button class="video-btn" data-video-id="p1BXNFlIaHM">Lecture 19</button></li>
+<li><button class="video-btn" data-video-id="Zr3lHeqzquI">Lecture 20</button></li>
+
+<li><button class="video-btn" data-video-id="GTiaU3ZpScA">Lecture 21</button></li>
+<li><button class="video-btn" data-video-id="pmgaSfMD5qM">Lecture 22</button></li>
+<li><button class="video-btn" data-video-id="eXW5yk_1sCo">Lecture 23</button></li>
+<li><button class="video-btn" data-video-id="3Cxzchfrpys">Lecture 24</button></li>
+<li><button class="video-btn" data-video-id="jJFKJpTJs9A">Lecture 25</button></li>
+<li><button class="video-btn" data-video-id="jEmJeDVaBF4">Lecture 26</button></li>
+<li><button class="video-btn" data-video-id="deI8cJiCKEo">Lecture 27</button></li>
+<li><button class="video-btn" data-video-id="lcGWO_x8tpM">Lecture 28</button></li>
+<li><button class="video-btn" data-video-id="U9m86joRSMg">Lecture 29</button></li>
+<li><button class="video-btn" data-video-id="KHdxQM4Gr5U">Lecture 30</button></li>
+
+<li><button class="video-btn" data-video-id="6aVFy6FjCgw">Lecture 31</button></li>
+<li><button class="video-btn" data-video-id="n4in7z4NP7Y">Lecture 32</button></li>
+<li><button class="video-btn" data-video-id="3gG6OlMvoOQ">Lecture 33</button></li>
+<li><button class="video-btn" data-video-id="9WUDdTebEDY">Lecture 34</button></li>
+<li><button class="video-btn" data-video-id="VxuCz_u5z7M">Lecture 35</button></li>
+<li><button class="video-btn" data-video-id="vBo49a4hG30">Lecture 36</button></li>
+<li><button class="video-btn" data-video-id="8eWpq4LGBcw">Lecture 37</button></li>
+<li><button class="video-btn" data-video-id="0PI82Z7exIs">Lecture 38</button></li>
+<li><button class="video-btn" data-video-id="JLwMirP3h-0">Lecture 39</button></li>
+<li><button class="video-btn" data-video-id="ugxBarCjZCs">Lecture 40</button></li>
+
+<li><button class="video-btn" data-video-id="SVDGe_myYOY">Lecture 41</button></li>
+<li><button class="video-btn" data-video-id="IjoN__UKZgY">Lecture 42</button></li>
+
+        
+    </ul>
+</div>
+
+
+    </aside>
+    
+ <!-- RIGHT: VIDEO PLAYER -->
+    <section class="lecture-player">
+
+        <div class="player-placeholder">
+            <p>Select a lecture to start watching.</p>
+        </div>
+
+        <!-- Single iframe. JS controls src -->
+        <iframe
+            id="videoPlayer"
+            src=""
+            title="Lecture Player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="display: none;">
+        </iframe>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="lectures-footer">
+    <p>Watch intentionally. Track later.</p>
+</footer>
+
+<script src="8.js"></script>
+</body>
+</html>

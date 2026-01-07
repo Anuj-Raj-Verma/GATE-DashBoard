@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATE 2028 Dashboard</title>
+    <link rel="icon" type="image/png" href="icons8-graduation-cap-16.png">
+    <link rel="stylesheet" href="gate.css">
+</head>
+
+<body>
+
+    <div id="focusStrip"></div>
+
+
+<!-- NAV BAR -->
+<div id="nav-bar">
+    <h1>GATE 2028</h1>
+
+    <!-- Focus Mode Button -->
+    <button id="focusToggle" class="focus-btn">🎯 Focus</button>
+
+    <!-- Navigation buttons -->
+    <button><a href="#hero">Home</a></button>
+    <button><a href="#quick-access">Subjects</a></button>
+    <button><a href="#pyqs">PYQs</a></button>
+    <button><a href="#mock-analysis">Mock Tests</a></button>
+    <button><a href="#revision-log">Revision</a></button>
+    <button><a href="#lectures">Resources</a></button>
+    <button><a href="#mistake-log">Mistake Logs</a></button>
+    <button id="themeToggle">🌙</button>
+    
+</div>
+
+
+
+<!-- HERO -->
+<section class="hero" id="hero">
+
+    <div class="hero-text">
+        <h2>Welcome to the <br>GATE 2028 Portal</h2>
+        <p>Your comprehensive preparation<br>tool for the upcoming GATE Exam.</p>
+    </div>
+
+    <div class="progress-card">
+        <h3>Preparation Progress</h3>
+        <p>Days Left: <strong><span id="daysLeft">--</span></strong></p>
+        <div class="progress-bar">
+            <div class="progress-fill" id="timeProgress"></div>
+        </div>
+        <small><span id="progressPercent">--</span>% Time Elapsed</small>
+    </div>
+
+    
+    
+</section>
+
+<!-- TODAY'S FOCUS -->
+<section class="today-focus">
+    <h3>Today's Focus</h3>
+    <ul id="taskList"></ul>
+
+    <div class="task-input">
+        <input type="text" id="taskInput" placeholder="Add task for tomorrow (max 3)">
+        <button id="addTaskBtn">Add</button>
+    </div>
+
+    <small id="taskInfo"></small>
+</section>
+
+<!-- QUICK ACCESS -->
+<section class="quick-access" id="quick-access">
+
+
+<!-- SYLLABUS -->
+<div class="card syllabus-card">
+    <h3>Syllabus</h3>
+    <div class="list">
+        <button class="item-btn"><a href="syllabus.html#maths">Engineering Mathematics</a></button>
+        <button class="item-btn"><a href="syllabus.html#networks">Network Theory</a></button>
+        <button class="item-btn"><a href="syllabus.html#networks">Signals and Systems</a></button>
+        <button class="item-btn"><a href="syllabus.html#analog-circuits">Analog Electronics</a></button>
+        <button class="item-btn"><a href="syllabus.html#digital">Digital Electronics</a></button>
+        <button class="item-btn"><a href="syllabus.html#control">Control Systems</a></button>
+        <button class="item-btn"><a href="syllabus.html#communication">Communication Systems</a></button>
+        <button class="item-btn"><a href="syllabus.html#em">Electromagnetic Fields</a></button>
+        <button class="item-btn"><a href="#">General Aptitude</a></button>
+        <button class="item-btn"><a href="#">Microprocessors</a></button>
+        <button class="item-btn"><a href="syllabus.html#devices">Electronic Devices and VLSI</a></button>
+    </div>
+</div>
+
+<!-- PYQs -->
+<div class="card pyqs-card" id="pyqs">
+
+    <h3>PYQs</h3>
+    <div class="list">
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/engineering-mathematics">Engineering Mathematics</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/network-theory">Network Theory</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/signals-and-systems">Signals and Systems</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/analog-circuits">Analog Electronics</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/digital-circuits">Digital Electronics</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/control-systems">Control Systems</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/communications">Communication Systems</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/electromagnetics">Electromagnetic Fields</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/general-aptitude">General Aptitude</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/microprocessors">Microprocessors</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/gate/gate-ece/electronic-devices-and-vlsi">Electronic Devices and VLSI</a></button>
+    </div>
+</div>
+
+<!-- PAPERS -->
+<div class="card papers-card">
+    <h3>Previous Papers</h3>
+    <div class="list">
+        <button class="item-btn"><a target="_blank" href="#">GATE 2027</a></button>
+        <button class="item-btn"><a target="_blank" href="#">GATE 2026</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/year-wise/gate/gate-ece/gate-ece-2025/mbf4yzts">GATE 2025</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/year-wise/gate/gate-ece/gate-ece-2024/lxkxw3sc">GATE 2024</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/year-wise/gate/gate-ece/gate-ece-2023/1lfgffwpx">GATE 2023</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/year-wise/gate/gate-ece/gate-ece-2022/1l03xdyji">GATE 2022</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/year-wise/gate/gate-ece/gate-ece-2021/mh0zbal9">GATE 2021</a></button>
+        <button class="item-btn"><a target="_blank" href="https://questions.examside.com/past-years/year-wise/gate/gate-ece/gate-ece-2020/mh2mjm2h">GATE 2020</a></button>
+    </div>
+</div>
+
+<!-- LECTURES -->
+<div class="card lecture-card" id="lectures">
+    <h3>Lectures</h3>
+    <div class="list">
+        <button class="item-btn"><a target="_blank" href="Lectures\1.html">Engineering Mathematics</a></button>
+        <button class="item-btn"><a target="_blank" href="Lectures\2.html">Network Theory</a></button>
+        <button class="item-btn"><a target="_blank" href="Lectures\3.html">Signals and Systems</a></button>
+        <button class="item-btn"><a target="_blank" href="Lectures\4.html">Analog Electronics</a></button>
+        <button class="item-btn"><a target="_blank" href="Lectures\5.html">Digital Electronics</a></button>
+        <button class="item-btn"><a target="_blank" href="Lectures\6.html">Control Systems</a></button>
+        <button class="item-btn"><a target="_blank" href="Lectures\7.html">Communication Systems</a></button>
+        <button class="item-btn"><a target="_blank" href="Lectures\8.html">Electromagnetic Fields</a></button>
+    </div>
+</div>
+
+</section>
+
+<!-- WEEKLY WEAK AREAS -->
+<section class="weekly-weak">
+    <h3>Weekly Weak Areas</h3>
+    <ul id="weakList"></ul>
+    <div class="weak-input">
+        <input type="text" id="weakInput" placeholder="Add weak topic (max 5)">
+        <button id="addWeakBtn">Add</button>
+    </div>
+    <small id="weakStatus"></small>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- REVISION LOG -->
+<section class="revision-log" id="revision-log">
+    <h3>Revision Log</h3>
+    <ul id="revisionList"></ul>
+    <div class="revision-input">
+        <input type="text" id="revisionInput" placeholder="What did you revise today?">
+        <button id="addRevisionBtn">Add</button>
+    </div>
+    <small id="revisionStatus"></small>
+
+    <button id="clearRevisionBtn">Clear Revision Log</button>
+
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- MOCK ANALYSIS -->
+<section class="mock-analysis" id="mock-analysis">
+    <h3>Last Mock Analysis</h3>
+    <div class="mock-fields">
+        <input type="number" id="mockScore" placeholder="Score (out of 100)">
+        <input type="number" id="mockAccuracy" placeholder="Accuracy (%)">
+    </div>
+    <textarea id="mockMistakes" placeholder="Key mistakes"></textarea>
+    <textarea id="mockFixes" placeholder="Fix plan"></textarea>
+    <button id="saveMockBtn">Save Analysis</button>
+    <small id="mockStatus"></small>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- MISTAKE LOG -->
+<section class="mistake-log" id="mistake-log">
+    <h3>Mistake Log</h3>
+    <ul id="mistakeList"></ul>
+    <div class="mistake-input">
+        <input type="text" id="mistakeInput" placeholder="Add recurring mistake">
+        <button id="addMistakeBtn">Add</button>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- DAILY OUTPUT ENGINE -->
+<section class="daily-output">
+    <h3>Daily Output</h3>
+    <ul id="outputList"></ul>
+    <small id="outputStats"></small>
+</section>
+
+
+
+<!-- RULES -->
+<section class="rules">
+    <h3>Non-Negotiables</h3>
+    <ul>
+        <li>PYQs after lectures</li>
+        <li>No new topic after 10 PM</li>
+        <li>Revise before moving on</li>
+        <li>Mock analysis within 24 hours</li>
+        <li>No skipping weak topics</li>
+    </ul>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- ANTI-PROCRASTINATION OVERLAY -->
+<div id="lockOverlay">
+    <div class="lock-box">
+        <h2>Action overdue.</h2>
+        <p>No task added by 10:00 AM.</p>
+        <p>Add a task to unlock the system.</p>
+    </div>
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+    <p>Last updated: <span id="lastUpdated"></span></p>
+    <p>Reminder: PYQs decide rank.</p><br><br>
+    <p>Developed by: <a  style="color: black;" target="_blank" href="https://github.com/Anuj-Raj-Verma">Anuj Raj Verma</a></p>
+</footer>
+
+<button id="backToTop" title="Go to top">↑</button>
+
+
+<script src="gate.js"></script>
+</body>
+</html>

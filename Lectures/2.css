@@ -1,0 +1,239 @@
+/* ================= BASE THEME ================= */
+:root {
+    --bg-main: #f6f7fb;
+    --bg-card: #ffffff;
+    --bg-accent: #0A174E;
+
+    --text-main: #0A174E;
+    --text-muted: #555;
+    --text-accent: #F5D042;
+
+    --border-soft: rgba(10, 23, 78, 0.15);
+}
+
+/* Dark mode support */
+body.dark {
+    --bg-main: #0e1117;
+    --bg-card: #161b22;
+    --bg-accent: #1f2937;
+
+    --text-main: #e5e7eb;
+    --text-muted: #cbd5e1;
+    --text-accent: #facc15;
+
+    --border-soft: rgba(255, 255, 255, 0.08);
+}
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================= HEADER ================= */
+.lectures-header {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px 35px;
+    background: linear-gradient(135deg, var(--bg-accent), #132161);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    color: var(--text-accent);
+}
+
+.lectures-header h1 {
+    font-size: 36px;
+    margin-bottom: 6px;
+}
+
+.lectures-header p {
+    font-size: 15px;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+/* ================= LAYOUT ================= */
+.lectures-layout {
+    max-width: 1200px;
+    margin: 30px auto 60px;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* ================= SIDEBAR ================= */
+.lecture-sidebar {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+}
+
+.subject-title h2 {
+    font-size: 22px;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.subject-title a {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.subject-title a:hover {
+    text-decoration: underline;
+}
+
+/* ================= VIDEO LIST ================= */
+.video-list {
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.video-btn {
+    width: 100%;
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+
+    background: var(--bg-accent);
+    color: var(--text-accent);
+
+    transition: background-color 0.25s ease,
+                transform 0.2s ease,
+                box-shadow 0.25s ease;
+}
+
+.video-btn:hover {
+    background: var(--text-accent);
+    color: var(--bg-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.video-btn.active {
+    background: var(--text-accent);
+    color: var(--bg-accent);
+    font-weight: 600;
+}
+
+/* ================= PLAYER ================= */
+.lecture-player {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-placeholder {
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-muted);
+    padding: 80px 20px;
+}
+
+#videoPlayer {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    display: none;
+}
+
+/* ================= FOOTER ================= */
+.lectures-footer {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .lectures-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .lecture-sidebar {
+        order: 2;
+    }
+
+    .lecture-player {
+        order: 1;
+    }
+}
+
+
+.lecture-sidebar {
+    width: 320px;
+    height: 520px;               /* fixed height */
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.video-list-wrapper {
+    margin-top: 16px;
+    flex: 1;                     /* fills remaining sidebar height */
+    overflow-y: auto;
+    padding-right: 6px;          /* prevents scrollbar overlap */
+}
+
+.video-list-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.video-list-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 6px;
+}
+
+.video-list-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.video-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.video-btn {
+    width: 100%;
+    text-align: left;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border: none;
+    background: #0a174e;
+    color: #facc15;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.video-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(10,23,78,0.3);
+}

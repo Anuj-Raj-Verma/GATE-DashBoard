@@ -259,7 +259,38 @@ button:hover a {
     color: #F5D042;
     border-radius: 6px;
     border: none;
+    min-height: 44px;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 10px;
 }
+
+
+/* ===== BUTTON TEXT NORMALIZATION (GLOBAL) ===== */
+.item-btn,
+.item-btn a {
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 500;
+    white-space: normal;
+    word-break: normal;
+    text-align: center;
+    display: block;
+    width: 100%;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+
+
+
+
 
 .item-btn:hover {
     background-color: #F5D042;
@@ -1618,7 +1649,53 @@ body.dark .footer-author {
     }
 }
 
+@media (max-width: 480px) {
+    .item-btn {
+        font-size: 14px;          /* smaller text */
+        line-height: 1.25;
+        padding: 8px 10px;
+        white-space: normal;      /* allow wrapping */
+        word-break: normal;       /* do NOT split words */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .item-btn {
+        font-size: 14px;          /* smaller text */
+        line-height: 1.25;
+        padding: 8px 10px;
+        white-space: normal;      /* allow wrapping */
+        word-break: normal;       /* do NOT split words */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        margin: 12px;
+    }
+
+    .quick-access {
+        padding: 20px 12px;
+    }
+}
 
 
 
+@media (max-width: 480px) {
+    .item-btn,
+    .item-btn a {
+        font-size: 14px;
+        line-height: 1.2;
+        
+    }
+}
 
+.card {
+    scrollbar-width: none;       /* Firefox */
+}
+
+.card::-webkit-scrollbar {
+    display: none;               /* Chrome, Edge */
+}

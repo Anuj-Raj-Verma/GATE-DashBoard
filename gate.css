@@ -20,15 +20,13 @@ body.dark {
     --bg-accent-2: #111827;
 
     --text-main: #e5e7eb;
-    --text-muted: #9ca3af;
+    --text-muted: #cbd5e1;
     --text-accent: #facc15;
 
     --border-soft: rgba(255, 255, 255, 0.08);
 }
 
-
-
-/* ================= RESET (FIXED) ================= */
+/* ================= RESET ================= */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -37,41 +35,41 @@ body.dark {
 
 body {
     margin: 20px;
-    background: #f6f7fb;
+    background: var(--bg-main);
+    color: var(--text-main);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
 }
 
-
-
-
-
 a {
     text-decoration: none;
-    color: #F5D042;
+    color: var(--text-accent);
 }
 
 button {
-    background-color: #0A174E;
-    border: 1px solid #0A174E;
+    background-color: var(--bg-accent);
+    border: 1px solid var(--bg-accent);
     border-radius: 6px;
     padding: 6px 12px;
     cursor: pointer;
+    color: var(--text-accent);
     transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #F5D042;
+    background-color: var(--text-accent);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(245, 208, 66, 0.5);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 button:hover a {
-    color: #0A174E;
+    color: var(--bg-accent);
 }
 
+
+/* ================= BUTTON STYLES ================= */
 .focus-btn {
-    margin-left: 160px; /* creates space from GATE 2028 title */
+    margin-left: 160px;
     background-color: var(--bg-accent-2);
     border: 1px solid var(--bg-accent-2);
     color: var(--text-accent);
@@ -82,12 +80,11 @@ button:hover a {
     background-color: var(--text-accent);
     color: var(--bg-accent);
 }
+
 #focusToggle {
     margin-right: auto;
     margin-left: 250px;
 }
-
-
 
 /* ================= HERO ================= */
 .hero {
@@ -100,23 +97,12 @@ button:hover a {
 .hero-text h2 {
     font-size: 64px;
     margin-bottom: 20px;
-
-    /* base color */
-    color: #0A174E;
-
-    /* hover gradient setup */
-    background: linear-gradient(
-        90deg,
-        #0A174E,
-        #F5D042,
-        #0A174E
-    );
+    background: linear-gradient(90deg, var(--text-main), var(--text-accent), var(--text-main));
     background-size: 200% 100%;
     background-position: 0% 50%;
-
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
     transition: background-position 0.6s ease;
 }
 
@@ -127,13 +113,13 @@ button:hover a {
 
 .hero-text p {
     font-size: 36px;
-    color: #555;
+    color: var(--text-muted);
 }
 
 /* ================= PROGRESS CARD ================= */
 .progress-card {
     width: 380px;
-    background-color: #ffffff;
+    background-color: var(--bg-card);
     padding: 25px;
     border-radius: 14px;
     box-shadow: 0 10px 28px rgba(10, 23, 78, 0.2);
@@ -147,14 +133,14 @@ button:hover a {
 
 .progress-card h3 {
     font-size: 28px;
-    color: #0A174E;
+    color: var(--text-main);
     margin-bottom: 15px;
 }
 
 .progress-bar {
     width: 100%;
     height: 22px;
-    background-color: #e0e0e0;
+    background-color: rgba(0, 0, 0, 0.15);
     border-radius: 15px;
     overflow: hidden;
     margin: 10px 0;
@@ -163,7 +149,7 @@ button:hover a {
 .progress-fill {
     height: 100%;
     width: 0%;
-    background-color: #0A174E;
+    background-color: var(--bg-accent);
     transition: width 0.5s ease;
 }
 
@@ -172,15 +158,15 @@ button:hover a {
     width: 100%;
     margin: 20px auto;
     padding: 30px 40px;
-    background: linear-gradient(135deg, #0A174E, #132161);
+    background: linear-gradient(135deg, var(--bg-accent), var(--bg-accent-2));
     border-radius: 12px;
     box-shadow: 0 12px 30px rgba(10, 23, 78, 0.35);
-    color: #F5D042;
+    color: var(--text-accent);
 }
 
 .today-focus h3 {
     font-size: 28px;
-    color: #F5D042;
+    color: var(--text-accent);
     margin-bottom: 15px;
 }
 
@@ -198,7 +184,6 @@ button:hover a {
 .task-input {
     display: flex;
     gap: 10px;
-    
 }
 
 .task-input input {
@@ -208,28 +193,30 @@ button:hover a {
     border-radius: 6px;
     border: none;
 }
+
 #addTaskBtn {
-    background-color: #F5D042;
-    color: #0A174E;
+    background-color: var(--text-accent);
+    color: var(--bg-accent);
 }
 
 /* ================= QUICK ACCESS ================= */
 .quick-access {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
     padding: 40px 60px;
+    justify-items: center;
 }
 
 /* ================= COMMON CARD ================= */
 .card {
     width: 300px;
     min-height: 520px;
-    background-color: #ffffff;
+    background-color: var(--bg-card);
     border-radius: 14px;
     padding: 20px;
     text-align: center;
-    color: #0A174E;
+    color: var(--text-main);
     box-shadow: 0 10px 28px rgba(10, 23, 78, 0.25);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -244,6 +231,14 @@ button:hover a {
     margin-bottom: 15px;
 }
 
+.card {
+    scrollbar-width: none;
+}
+
+.card::-webkit-scrollbar {
+    display: none;
+}
+
 /* ================= LIST & BUTTONS ================= */
 .list {
     display: flex;
@@ -254,9 +249,10 @@ button:hover a {
 .item-btn {
     width: 100%;
     padding: 10px;
-    font-size: 18.5px;
-    background-color: #0A174E;
-    color: #F5D042;
+    font-size: 16px;
+    line-height: 1.25;
+    background-color: var(--bg-accent);
+    color: var(--text-accent);
     border-radius: 6px;
     border: none;
     min-height: 44px;
@@ -265,36 +261,22 @@ button:hover a {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 8px 10px;
-}
-
-
-/* ===== BUTTON TEXT NORMALIZATION (GLOBAL) ===== */
-.item-btn,
-.item-btn a {
-    font-size: 16px;
-    line-height: 1.25;
     font-weight: 500;
     white-space: normal;
     word-break: normal;
-    text-align: center;
-    display: block;
-    width: 100%;
-
-    white-space: normal;
     overflow-wrap: anywhere;
-    word-break: break-word;
     hyphens: auto;
 }
 
-
-
-
-
+.item-btn a {
+    display: block;
+    width: 100%;
+    color: inherit;
+}
 
 .item-btn:hover {
-    background-color: #F5D042;
-    color: #0A174E;
+    background-color: var(--text-accent);
+    color: var(--bg-accent);
 }
 
 /* ================= CHAPTER DROPDOWNS ================= */
@@ -305,28 +287,15 @@ button:hover a {
 .chapter-btn {
     width: 100%;
     padding: 10px;
-    background-color: #0A174E;
-    color: #F5D042;
+    background-color: var(--bg-accent);
+    color: var(--text-accent);
     border-radius: 6px;
 }
-.chapter-btn:hover{
-    color: #0A174E;
+
+.chapter-btn:hover {
+    color: var(--bg-accent);
     border: none;
 }
-
-/* .subtopics {
-    list-style: none;
-    margin-top: 6px;
-    padding-left: 10px;
-    display: none;
-}
-
-.subtopics li {
-    font-size: 14px;
-    padding: 6px 0;
-    color: #0A174E;
-    border-bottom: 1px solid rgba(10, 23, 78, 0.15);
-} */
 
 /* ================= FOOTER ================= */
 .footer {
@@ -334,39 +303,107 @@ button:hover a {
     padding: 20px;
     text-align: center;
     font-size: 14px;
-    color: #555;
+    color: var(--text-muted);
 }
+
+/* Footer author link */
+.footer-author {
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.footer-author:hover {
+    color: var(--text-accent);
+}
+
 /* ================= CLEAN SECTION CONTAINERS ================= */
 .weekly-weak,
 .revision-log,
 .mock-analysis,
 .mistake-log,
-.rules {
+.rules,
+.daily-output {
     max-width: 900px;
+    width: 100%;
     margin: 40px auto;
-    padding: 30px 35px;
-    background: #ffffff;
+    padding: 28px 32px;
+    background: var(--bg-card);
     border-radius: 14px;
     box-shadow: 0 10px 28px rgba(10, 23, 78, 0.18);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Section headings */
 .weekly-weak h3,
 .revision-log h3,
 .mock-analysis h3,
 .mistake-log h3,
-.rules h3 {
+.rules h3,
+.daily-output h3 {
     font-size: 26px;
     margin-bottom: 18px;
-    color: #0A174E;
-    border-bottom: 2px solid rgba(10,23,78,0.1);
+    color: var(--text-main);
+    border-bottom: 2px solid rgba(10, 23, 78, 0.1);
     padding-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.weekly-weak h3::after,
+.revision-log h3::after,
+.mock-analysis h3::after,
+.mistake-log h3::after,
+.rules h3::after,
+.daily-output h3::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    margin-top: 6px;
+    background: var(--text-accent);
+    border-radius: 2px;
+}
+
+/* ================= LEFT ACCENT BAR ================= */
+.weekly-weak::before,
+.revision-log::before,
+.mock-analysis::before,
+.mistake-log::before,
+.rules::before,
+.daily-output::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--bg-accent);
+    transition: width 0.25s ease;
+}
+
+body.dark .weekly-weak::before,
+body.dark .revision-log::before,
+body.dark .mock-analysis::before,
+body.dark .mistake-log::before,
+body.dark .rules::before,
+body.dark .daily-output::before {
+    background: var(--text-accent);
+}
+
+.weekly-weak:hover::before,
+.revision-log:hover::before,
+.mock-analysis:hover::before,
+.mistake-log:hover::before,
+.rules:hover::before,
+.daily-output:hover::before {
+    width: 10px;
 }
 
 /* ================= LISTS ================= */
 #weakList,
 #revisionList,
 #mistakeList,
+#outputList,
 .rules ul {
     list-style: none;
     margin-bottom: 18px;
@@ -375,9 +412,11 @@ button:hover a {
 #weakList li,
 #revisionList li,
 #mistakeList li,
+#outputList li,
 .rules li {
-    font-size: 17px;
+    font-size: 16px;
     padding: 8px 0;
+    padding-left: 4px;
     color: var(--text-main);
     display: flex;
     align-items: center;
@@ -386,10 +425,19 @@ button:hover a {
 #weakList li::before,
 #revisionList li::before,
 #mistakeList li::before {
-    content: "•";
-    color: #0A174E;
-    font-weight: bold;
-    margin-right: 10px;
+    content: none;
+}
+
+#outputList input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+#outputList .done {
+    text-decoration: line-through;
+    color: var(--text-muted);
 }
 
 /* ================= INPUT ROWS ================= */
@@ -402,7 +450,6 @@ button:hover a {
     margin-top: 10px;
 }
 
-/* Inputs */
 .weak-input input,
 .revision-input input,
 .mistake-input input,
@@ -411,17 +458,16 @@ button:hover a {
     padding: 10px 12px;
     font-size: 15px;
     border-radius: 8px;
-    border: 1.8px solid rgba(10,23,78,0.2);
+    border: 1.8px solid rgba(10, 23, 78, 0.2);
 }
 
-/* Textareas */
 .mock-analysis textarea {
     width: 100%;
     margin-top: 10px;
     padding: 12px;
     border-radius: 10px;
     font-size: 15px;
-    border: 1.8px solid rgba(10,23,78,0.2);
+    border: 1.8px solid rgba(10, 23, 78, 0.2);
 }
 
 /* ================= BUTTONS ================= */
@@ -432,8 +478,8 @@ button:hover a {
     padding: 10px 16px;
     font-size: 15px;
     border-radius: 8px;
-    background-color: #0A174E;
-    color: #F5D042;
+    background-color: var(--bg-accent);
+    color: var(--text-accent);
     border: none;
     cursor: pointer;
 }
@@ -442,11 +488,10 @@ button:hover a {
 .revision-log button:hover,
 .mock-analysis button:hover,
 .mistake-log button:hover {
-    background-color: #F5D042;
-    color: #0A174E;
+    background-color: var(--text-accent);
+    color: var(--bg-accent);
 }
 
-/* Space the clear revision button slightly down */
 #clearRevisionBtn {
     display: block;
     margin-top: 12px;
@@ -455,11 +500,12 @@ button:hover a {
 /* ================= STATUS TEXT ================= */
 #weakStatus,
 #revisionStatus,
-#mockStatus {
+#mockStatus,
+#outputStats {
     display: block;
     margin-top: 12px;
     font-size: 14px;
-    color: #555;
+    color: var(--text-muted);
 }
 
 /* ================= MOCK ANALYSIS LAYOUT ================= */
@@ -472,75 +518,8 @@ button:hover a {
     align-self: flex-start;
     margin-top: 10px;
 }
-/* ================= SYLLABUS CARD FIX ================= */
-/* Make syllabus behave exactly like PYQs */
 
-.syllabus-card .list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* Neutralize old chapter styling ONLY for syllabus */
-.syllabus-card .chapter,
-.syllabus-card .chapter-btn {
-    all: unset;
-}
-
-/* Ensure syllabus buttons match item buttons */
-.syllabus-card .item-btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 18.5px;
-    background-color: #0A174E;
-    color: #F5D042;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-}
-
-/* Anchor fills button */
-.syllabus-card .item-btn a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: inherit;
-}
-
-/* Hover effect same as PYQs */
-.syllabus-card .item-btn:hover {
-    background-color: #F5D042;
-    color: #0A174E;
-}
-/********************************RESPONSIVE DESIGN********************************/
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-text h2 {
-        font-size: 48px;
-    }
-
-    .hero-text p {
-        font-size: 24px;
-    }
-
-    .quick-access {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .progress-card,
-    .card {
-        width: 100%;
-        max-width: 400px;
-    }
-}
-
-/* ================= SYLLABUS PAGE STYLES ================= */
+/* ================= SYLLABUS CARD STYLES ================= */
 /* This section ONLY affects syllabus.html */
 
 /* Header */
@@ -576,16 +555,16 @@ button:hover a {
 
 .syllabus-nav a {
     padding: 8px 14px;
-    background-color: #0A174E;
-    color: #F5D042;
+    background-color: var(--bg-accent);
+    color: var(--text-accent);
     border-radius: 6px;
     font-size: 14px;
     transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
 .syllabus-nav a:hover {
-    background-color: #F5D042;
-    color: #0A174E;
+    background-color: var(--text-accent);
+    color: var(--bg-accent);
     transform: translateY(-2px);
 }
 
@@ -594,15 +573,15 @@ button:hover a {
     max-width: 1100px;
     margin: 30px auto;
     padding: 30px 35px;
-    background: #ffffff;
+    background: var(--bg-card);
     border-radius: 14px;
     box-shadow: 0 10px 28px rgba(10, 23, 78, 0.18);
-    scroll-margin-top: 90px; /* prevents nav overlap */
+    scroll-margin-top: 90px;
 }
 
 .syllabus-section h2 {
     font-size: 26px;
-    color: #0A174E;
+    color: var(--text-main);
     margin-bottom: 15px;
     border-bottom: 2px solid rgba(10, 23, 78, 0.1);
     padding-bottom: 8px;
@@ -616,14 +595,14 @@ button:hover a {
 .syllabus-section li {
     font-size: 16px;
     padding: 8px 0;
-    color: #333;
+    color: var(--text-main);
     display: flex;
     align-items: flex-start;
 }
 
 .syllabus-section li::before {
     content: "•";
-    color: #0A174E;
+    color: var(--text-main);
     font-weight: bold;
     margin-right: 10px;
 }
@@ -633,227 +612,130 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .syllabus-header h1 {
-        font-size: 28px;
-    }
-
-    .syllabus-nav {
-        justify-content: center;
-    }
-
-    .syllabus-section {
-        padding: 24px 20px;
-    }
-}
-
-
-/* ================= THEME VARIABLES ================= */
-:root {
-    --bg-main: #f6f7fb;
-    --bg-card: #ffffff;
-    --bg-accent: #0A174E;
-    --bg-accent-2: #132161;
-
-    --text-main: #0A174E;
-    --text-muted: #555;
-    --text-accent: #F5D042;
-
-    --border-soft: rgba(10, 23, 78, 0.18);
-}
-
-/* ================= DARK MODE ================= */
-body.dark {
-    --bg-main: #0e1117;
-    --bg-card: #161b22;
-    --bg-accent: #1f2937;
-    --bg-accent-2: #111827;
-
-    --text-main: #e5e7eb;
-    --text-muted: #9ca3af;
-    --text-accent: #facc15;
-
-    --border-soft: rgba(255, 255, 255, 0.08);
-}
-
-/* ================= RESET ================= */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    margin: 20px;
-    background: var(--bg-main);
-    color: var(--text-main);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-
-
-a {
-    text-decoration: none;
-    color: var(--text-accent);
-}
-
-button {
-    background-color: var(--bg-accent);
-    border: 1px solid var(--bg-accent);
-    border-radius: 6px;
-    padding: 6px 12px;
-    cursor: pointer;
-    color: var(--text-accent);
-    transition: background-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-}
-
-button:hover {
-    background-color: var(--text-accent);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-}
-
+/* ================= SYLLABUS PAGE STYLES ================= */
 button:hover a {
     color: var(--bg-accent);
 }
 
-/* ================= HERO ================= */
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 70px 80px;
-}
-
-.hero-text h2 {
-    font-size: 64px;
-    margin-bottom: 20px;
-
-    background: linear-gradient(
-        90deg,
-        var(--text-main),
-        var(--text-accent),
-        var(--text-main)
-    );
-    background-size: 200% 100%;
-    background-position: 0% 50%;
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    transition: background-position 0.6s ease;
-}
-
-.hero-text h2:hover {
-    background-position: 100% 50%;
-}
-
-.hero-text p {
-    font-size: 36px;
-    color: var(--text-muted);
-}
-
-/* ================= PROGRESS CARD ================= */
-.progress-card {
-    width: 380px;
-    background-color: var(--bg-card);
-    padding: 25px;
-    border-radius: 14px;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.progress-card h3 {
-    font-size: 28px;
-    color: var(--text-main);
-}
-
-.progress-bar {
-    width: 100%;
-    height: 22px;
-    background-color: rgba(0,0,0,0.15);
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.progress-fill {
-    height: 100%;
-    background-color: var(--bg-accent);
-}
-
-/* ================= TODAY'S FOCUS ================= */
-.today-focus {
+/* ================= SYLLABUS HEADER ================= */
+.syllabus-header {
+    max-width: 1100px;
+    margin: 40px auto 20px;
+    padding: 30px 35px;
     background: linear-gradient(135deg, var(--bg-accent), var(--bg-accent-2));
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(10, 23, 78, 0.35);
     color: var(--text-accent);
 }
 
-/* ================= COMMON CARD ================= */
-.card {
-    background-color: var(--bg-card);
-    color: var(--text-main);
-    box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+.syllabus-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-/* ================= FOOTER ================= */
-.footer {
-    color: var(--text-muted);
+.syllabus-header p {
+    font-size: 16px;
+    color: #ffffff;
+    opacity: 0.9;
 }
 
-/* ================= CLEAN SECTIONS ================= */
-.weekly-weak,
-.revision-log,
-.mock-analysis,
-.mistake-log,
-.rules {
+/* ================= SYLLABUS NAVIGATION ================= */
+.syllabus-nav {
+    max-width: 1100px;
+    margin: 20px auto 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.syllabus-nav a {
+    padding: 8px 14px;
+    background-color: var(--bg-accent);
+    color: var(--text-accent);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.syllabus-nav a:hover {
+    background-color: var(--text-accent);
+    color: var(--bg-accent);
+    transform: translateY(-2px);
+}
+
+/* ================= SYLLABUS SECTIONS ================= */
+.syllabus-section {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 30px 35px;
     background: var(--bg-card);
-    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(10, 23, 78, 0.18);
+    scroll-margin-top: 90px;
 }
 
-/* ================= STATUS TEXT ================= */
-#weakStatus,
-#revisionStatus,
-#mockStatus {
-    color: var(--text-muted);
-}
-
-/* ================= SMOOTH SCROLL ================= */
-html {
-    scroll-behavior: smooth;
-}
-.weekly-weak h3,
-.revision-log h3,
-.mock-analysis h3,
-.mistake-log h3,
-.rules h3 {
+.syllabus-section h2 {
+    font-size: 26px;
     color: var(--text-main);
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(10, 23, 78, 0.1);
+    padding-bottom: 8px;
 }
-#weakList li::before,
-#revisionList li::before,
-#mistakeList li::before {
+
+.syllabus-section ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.syllabus-section li {
+    font-size: 16px;
+    padding: 8px 0;
     color: var(--text-main);
-}
-#weakStatus,
-#revisionStatus,
-#mockStatus {
-    color: var(--text-muted);
-}
-body.dark {
-    --text-muted: #cbd5e1; /* lighter, readable */
-}
-body.dark .rules li {
-    color: #e5e7eb; /* same as --text-main */
+    display: flex;
+    align-items: flex-start;
 }
 
-
-body.dark #revisionList li {
+.syllabus-section li::before {
+    content: "•";
     color: var(--text-main);
+    font-weight: bold;
+    margin-right: 10px;
 }
 
+.syllabus-card .list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
+.syllabus-card .chapter,
+.syllabus-card .chapter-btn {
+    all: unset;
+}
 
-/*==============     Part 3 Slides    =======================*/
+.syllabus-card .item-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: var(--bg-accent);
+    color: var(--text-accent);
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
 
+.syllabus-card .item-btn a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+}
+
+.syllabus-card .item-btn:hover {
+    background-color: var(--text-accent);
+    color: var(--bg-accent);
+}
 
 /* ================= SCROLL REVEAL ================= */
 .reveal {
@@ -867,66 +749,94 @@ body.dark #revisionList li {
     transform: translateY(0);
 }
 
-
-
-/*================PART 3=========================*/
-
-/* ================= DAILY OUTPUT ENGINE ================= */
-
-.daily-output {
+/* ================= SECTION DIVIDER ================= */
+.section-divider {
+    height: 1px;
+    width: 100%;
     max-width: 900px;
-    margin: 40px auto;
-    padding: 30px 35px;
-    background: var(--bg-card);
-    border-radius: 14px;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    margin: 70px auto;
+    background: linear-gradient(to right, transparent, var(--border-soft), transparent);
 }
 
+/* ================= SECTION HIERARCHY ================= */
+.today-focus,
+.weekly-weak,
+.daily-output {
+    padding: 36px 40px;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+.today-focus::before,
+.weekly-weak::before,
+.daily-output::before {
+    width: 6px;
+}
+
+.today-focus h3,
+.weekly-weak h3,
 .daily-output h3 {
-    font-size: 26px;
-    margin-bottom: 18px;
-    color: var(--text-main);
-    border-bottom: 2px solid var(--border-soft);
-    padding-bottom: 8px;
+    font-size: 28px;
 }
 
-#outputList {
-    list-style: none;
-    margin-bottom: 14px;
+.revision-log,
+.mock-analysis,
+.mistake-log {
+    padding: 28px 34px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
 }
 
-#outputList li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 0;
-    font-size: 16px;
-    color: var(--text-main);
+.rules {
+    padding: 26px 32px;
+    opacity: 0.95;
 }
 
-#outputList input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
+.rules h3 {
+    font-size: 24px;
 }
 
-#outputList .done {
-    text-decoration: line-through;
-    color: var(--text-muted);
+.rules li {
+    font-size: 15.5px;
 }
 
-#outputStats {
-    display: block;
-    margin-top: 10px;
-    font-size: 14px;
-    color: var(--text-muted);
+/* ================= WEAK AREA STYLES ================= */
+.weak-warning {
+    color: #f59e0b;
+    animation: slowPulse 3s ease-in-out infinite;
 }
 
+.weak-critical {
+    color: #ef4444;
+    font-weight: 600;
+    animation: slowPulse 1.8s ease-in-out infinite;
+}
 
-/*=========================Part 4 ======================*/
+@keyframes slowPulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.55; }
+    100% { opacity: 1; }
+}
+
+/* ================= TODAY MARKER ================= */
+.today-marker {
+    box-shadow: 0 0 0 2px var(--text-accent),
+                0 0 18px rgba(245, 208, 66, 0.25);
+    position: relative;
+}
+
+.today-marker::after {
+    content: "TODAY";
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--text-accent);
+    color: var(--bg-accent);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
 
 /* ================= ANTI-PROCRASTINATION LOCK ================= */
-
 #lockOverlay {
     position: fixed;
     inset: 0;
@@ -944,7 +854,7 @@ body.dark #revisionList li {
     border-radius: 14px;
     max-width: 420px;
     text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 .lock-box h2 {
@@ -959,18 +869,12 @@ body.dark #revisionList li {
     line-height: 1.5;
 }
 
-/* Read-only mode visual cue */
 .read-only {
     opacity: 0.6;
     pointer-events: none;
 }
 
-
-
-/******** SCROLL BUTTON***********/
-
 /* ================= BACK TO TOP BUTTON ================= */
-
 #backToTop {
     position: fixed;
     bottom: 30px;
@@ -998,453 +902,207 @@ body.dark #revisionList li {
     visibility: visible;
 }
 
-
-
-
-
-
-/* ================= SECTION DIVIDER ================= */
-
-.section-divider {
-    height: 1px;
-    width: 100%;
-    max-width: 900px;
-    margin: 70px auto;
-    background: linear-gradient(
-        to right,
-        transparent,
-        var(--border-soft),
-        transparent
-    );
-}
-
-
-/* ================= SECTION IDENTITY ================= */
-
-.weekly-weak,
-.revision-log,
-.mock-analysis,
-.mistake-log,
-.rules,
-.daily-output {
+/* ================= NAV BAR ================= */
+#nav-bar {
+    max-width: 1200px;
+    margin: 20px auto;
     position: relative;
-    padding-left: 42px; /* room for accent bar */
+    z-index: 1000;
 }
 
-.weekly-weak::before,
-.revision-log::before,
-.mock-analysis::before,
-.mistake-log::before,
-.rules::before,
-.daily-output::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 24px;
-    height: calc(100% - 48px);
-    width: 4px;
-    border-radius: 4px;
-    background: var(--bg-accent);
-    opacity: 0.9;
+.nav-inner {
+    background: linear-gradient(135deg, var(--bg-accent), var(--bg-accent-2));
+    border-radius: 18px;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Dark mode: softer but visible */
-body.dark
-.weekly-weak::before,
-body.dark
-.revision-log::before,
-body.dark
-.mock-analysis::before,
-body.dark
-.mistake-log::before,
-body.dark
-.rules::before,
-body.dark
-.daily-output::before {
+.logo {
+    color: var(--text-accent);
+    font-size: 22px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 14px;
+}
+
+.nav-link {
+    padding: 8px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-accent);
+    font-weight: 500;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
     background: var(--text-accent);
+    color: var(--bg-accent);
+    transform: translateY(-2px);
 }
 
-
-/* ================= SECTION HOVER EMPHASIS ================= */
-
-.weekly-weak::before,
-.revision-log::before,
-.mock-analysis::before,
-.mistake-log::before,
-.rules::before,
-.daily-output::before {
-    transition: width 0.25s ease, opacity 0.25s ease;
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* On hover: stronger visual anchor */
-.weekly-weak:hover::before,
-.revision-log:hover::before,
-.mock-analysis:hover::before,
-.mistake-log:hover::before,
-.rules:hover::before,
-.daily-output:hover::before {
-    width: 10px;          /* wider, but not obnoxious */
-    opacity: 1;
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-accent);
+    cursor: pointer;
 }
 
-
-/* ================= SECTION HIERARCHY ================= */
-
-/* Tier 1: Action sections */
-.today-focus,
-.weekly-weak,
-.daily-output {
-    padding: 36px 40px;
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
-}
-
-/* Stronger left bar for Tier 1 */
-.today-focus::before,
-.weekly-weak::before,
-.daily-output::before {
-    width: 6px;
-}
-
-/* Slightly larger headings */
-.today-focus h3,
-.weekly-weak h3,
-.daily-output h3 {
-    font-size: 28px;
-}
-
-/* Tier 2: Review sections */
-.revision-log,
-.mock-analysis,
-.mistake-log {
-    padding: 28px 34px;
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16);
-}
-
-/* Tier 3: Passive rules */
-.rules {
-    padding: 26px 32px;
-    opacity: 0.95;
-}
-
-/* Make rules feel calmer */
-.rules h3 {
-    font-size: 24px;
-}
-
-.rules li {
-    font-size: 15.5px;
-}
-
-/* ================= WEAK AREA CONSEQUENCES ================= */
-
-.weak-warning {
-    color: #f59e0b; /* amber */
-    animation: slowPulse 3s ease-in-out infinite;
-}
-
-.weak-critical {
-    color: #ef4444; /* red */
-    font-weight: 600;
-    animation: slowPulse 1.8s ease-in-out infinite;
-}
-
-@keyframes slowPulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.55; }
-    100% { opacity: 1; }
-}
-
-
-
-
-.weekly-weak,
-.revision-log,
-.mock-analysis,
-.mistake-log,
-.rules,
-.daily-output {
-    position: relative;
-    overflow: hidden;
-}
-
-.weekly-weak::before,
-.revision-log::before,
-.mock-analysis::before,
-.mistake-log::before,
-.rules::before,
-.daily-output::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--bg-accent);
-    transition: width 0.25s ease;
-}
-
-.weekly-weak:hover::before,
-.revision-log:hover::before,
-.mock-analysis:hover::before,
-.mistake-log:hover::before,
-.rules:hover::before,
-.daily-output:hover::before {
-    width: 10px;
-}
-
-.weekly-weak,
-.revision-log,
-.mock-analysis,
-.mistake-log,
-.rules,
-.daily-output {
-    margin: 60px auto;
+.menu-toggle {
+    display: none;
 }
 
 .hero + .today-focus {
     margin-top: 80px;
 }
 
-.weekly-weak h3,
-.revision-log h3,
-.mock-analysis h3,
-.mistake-log h3,
-.rules h3,
-.daily-output h3 {
-    letter-spacing: 0.5px;
-}
-.weekly-weak h3::after,
-.revision-log h3::after,
-.mock-analysis h3::after,
-.mistake-log h3::after,
-.rules h3::after,
-.daily-output h3::after {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 3px;
-    margin-top: 6px;
-    background: var(--text-accent);
-    border-radius: 2px;
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+
+/* ============ EXTRA LARGE DEVICES (1200px and above) ============ */
+@media (min-width: 1200px) {
+    .quick-access {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        padding: 40px 60px;
+    }
+
+    .hero {
+        padding: 70px 80px;
+    }
 }
 
-.today-marker {
-    box-shadow: 0 0 0 2px var(--text-accent),
-                0 0 18px rgba(245, 208, 66, 0.25);
-    position: relative;
+/* ============ LARGE DEVICES (1025px to 1199px) ============ */
+@media (max-width: 1199px) and (min-width: 1025px) {
+    .quick-access {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 35px 50px;
+    }
+
+    .hero {
+        padding: 60px 60px;
+    }
 }
 
-.today-marker::after {
-    content: "TODAY";
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: var(--text-accent);
-    color: var(--bg-accent);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 12px;
+/* ============ TABLET LANDSCAPE (769px to 1024px) ============ */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .quick-access {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        padding: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        padding: 50px 40px;
+        gap: 20px;
+    }
+
+    .progress-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 88px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        background: linear-gradient(135deg, var(--bg-accent), var(--bg-accent-2));
+        border-radius: 18px;
+        padding: 22px 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        z-index: 1000;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
 }
 
-
-
-#weakList li::before,
-#revisionList li::before,
-#mistakeList li::before {
-    content: none;
-}
-
-#weakList li,
-#revisionList li,
-#mistakeList li {
-    padding-left: 4px;
-}
-
-
-
-/* Footer author link */
-.footer-author {
-    color: var(--text-main);
-    font-weight: 500;
-    transition: color 0.25s ease;
-}
-
-.footer-author:hover {
-    color: var(--text-accent);
-}
-
-/* Dark mode override (explicit) */
-body.dark .footer-author {
-    color: var(--text-main);
-}
-
-
-/* ===== NAV BAR ===== */
-#nav-bar {
-  max-width: 1200px;
-  margin: 20px auto;
-  position: relative;
-  z-index: 1000;
-}
-
-.nav-inner {
-  background: linear-gradient(135deg, #0A174E, #132161);
-  border-radius: 18px;
-  padding: 14px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-}
-
-/* LOGO */
-.logo {
-  color: var(--text-accent);
-  font-size: 22px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-/* LINKS (DESKTOP) */
-.nav-links {
-  display: flex;
-  gap: 14px;
-}
-
-.nav-link {
-  padding: 8px 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--text-accent);
-  font-weight: 500;
-  transition: background 0.25s ease, transform 0.2s ease;
-}
-
-.nav-link:hover {
-  background: var(--text-accent);
-  color: var(--bg-accent);
-  transform: translateY(-2px);
-}
-
-/* ACTIONS */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.icon-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: var(--text-accent);
-  cursor: pointer;
-}
-
-/* HIDE MENU BUTTON ON DESKTOP */
-.menu-toggle {
-  display: none;
-}
-
-/* ===== MOBILE ===== */
+/* ============ TABLET PORTRAIT (481px to 768px) ============ */
 @media (max-width: 768px) {
+    .quick-access {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 20px;
+    }
 
-  .menu-toggle {
-    display: inline-block;
-  }
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 24px;
+        padding: 40px 20px;
+    }
 
-  .nav-links {
-    position: absolute;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
+    .hero-text h2 {
+        font-size: 48px;
+    }
 
-    background: linear-gradient(135deg, #0A174E, #132161);
-    border-radius: 18px;
-    padding: 20px;
+    .hero-text p {
+        font-size: 24px;
+    }
 
-    display: none;
-    flex-direction: column;
-    gap: 14px;
+    .progress-card {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+    }
 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-  }
+    .card {
+        width: 100%;
+        max-width: 280px;
+        max-height: 420px;
+        overflow-y: auto;
+    }
 
-  .nav-links.open {
-    display: flex;
-  }
+    .list {
+        gap: 8px;
+    }
 
-  .nav-link {
-    text-align: center;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 1024px) {
-
-  /* SHOW MENU BUTTON */
-  .menu-toggle {
-    display: block;
-  }
-
-  /* HIDE LINKS BY DEFAULT */
-  .nav-links {
-    position: absolute;
-    top: 88px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-
-    background: linear-gradient(135deg, #0A174E, #132161);
-    border-radius: 18px;
-    padding: 22px 0;
-
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-    z-index: 1000;
-  }
-
-  /* SHOW WHEN CLICKED */
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-link {
-    font-size: 16px;
-  }
-}
-
-
-.weekly-weak,
-.revision-log,
-.mock-analysis,
-.mistake-log,
-.rules,
-.daily-output,
-.progress-card,
-.card {
-    max-width: 100%;
-}
-
-
-.weekly-weak,
-.revision-log,
-.mock-analysis,
-.mistake-log,
-.rules,
-.daily-output,
-.progress-card,
-.card {
-    max-width: 100%;
-}
-
-@media (max-width: 600px) {
+    .weekly-weak::before,
+    .revision-log::before,
+    .mock-analysis::before,
+    .mistake-log::before,
+    .rules::before,
+    .daily-output::before {
+        width: 3px;
+        opacity: 0.7;
+    }
 
     .weak-input,
     .revision-input,
@@ -1469,9 +1127,136 @@ body.dark .footer-author {
     .task-input button {
         width: 100%;
     }
+
+    .syllabus-header h1 {
+        font-size: 28px;
+    }
+
+    .syllabus-nav {
+        justify-content: center;
+    }
+
+    .syllabus-section {
+        padding: 24px 20px;
+    }
+
+    .menu-toggle {
+        display: inline-block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        background: linear-gradient(135deg, var(--bg-accent), var(--bg-accent-2));
+        border-radius: 18px;
+        padding: 20px;
+        display: none;
+        flex-direction: column;
+        gap: 14px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-link {
+        text-align: center;
+        font-size: 16px;
+    }
 }
 
+/* ============ MOBILE (481px to 600px) ============ */
 @media (max-width: 600px) {
+    /* 2x2 quick-access layout for narrow phones */
+    .quick-access {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        gap: 10px;
+        padding: 12px;
+        width: 100%;
+        justify-items: stretch;
+        align-items: stretch;
+    }
+
+    /* Ensure first four quick-access items (Syllabus, PYQs, Previous Papers, Lectures)
+       visually behave as uniform cards filling the grid cells */
+    .quick-access > * {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        padding: 10px;
+    }
+
+    /* Make inner card content fill and center */
+    .quick-access .card,
+    .quick-access .progress-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    /* Buttons inside quick-access should be compact and wrap safely */
+    .quick-access .item-btn {
+        font-size: 13px;
+        padding: 8px 10px;
+        line-height: 1.15;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    /* Ensure anchors inside buttons don't overflow */
+    .quick-access .item-btn a {
+        display: block;
+        width: 100%;
+    }
+
+    /* Smaller headings/text inside quick-access cards */
+    .quick-access .card h3,
+    .quick-access .card p,
+    .quick-access h3,
+    .quick-access p {
+        font-size: 14px;
+        margin: 0;
+    }
+
+    /* Adjust progress-card and general card sizing for phones */
+    .progress-card {
+        max-width: 100%;
+        padding: 12px;
+    }
+
+    .card {
+        width: 100%;
+        min-height: 90px;
+    }
+
+    /* section paddings */
+    .weekly-weak,
+    .revision-log,
+    .mock-analysis,
+    .mistake-log,
+    .rules,
+    .daily-output {
+        padding: 18px 14px;
+    }
 
     .weekly-weak::before,
     .revision-log::before,
@@ -1482,23 +1267,14 @@ body.dark .footer-author {
         width: 3px;
         opacity: 0.7;
     }
-}
 
-@media (max-width: 600px) {
-
-    .weekly-weak::before,
-    .revision-log::before,
-    .mock-analysis::before,
-    .mistake-log::before,
-    .rules::before,
-    .daily-output::before {
-        width: 3px;
-        opacity: 0.7;
+    body {
+        margin: 10px;
     }
 }
 
-@media (max-width: 380px) {
-
+/* ============ SMALL MOBILE (380px to 480px) ============ */
+@media (max-width: 480px) {
     h2 {
         font-size: 36px !important;
     }
@@ -1506,36 +1282,6 @@ body.dark .footer-author {
     h3 {
         font-size: 22px;
     }
-}
-
-
-@media (max-width: 600px) {
-
-    .hero {
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
-    }
-
-    .hero-text {
-        text-align: center;
-    }
-
-    .progress-card {
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 600px) {
-    .progress-card {
-        box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-    }
-}
-
-
-@media (max-width: 380px) {
 
     .hero {
         padding: 40px 20px;
@@ -1556,146 +1302,122 @@ body.dark .footer-author {
         max-width: 280px;
         padding: 18px;
     }
-}
 
-
-/* ===== CARD WIDTH CONTROL (FINAL FIX) ===== */
-
-.weekly-weak,
-.revision-log,
-.mock-analysis,
-.mistake-log,
-.rules,
-.daily-output {
-    max-width: 900px;     /* restores original elegant width */
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.weekly-weak,
-.revision-log,
-.mock-analysis,
-.mistake-log,
-.rules,
-.daily-output {
-    padding: 28px 32px;   /* slimmer, cleaner, original feel */
-}
-
-@media (max-width: 600px) {
-    .weekly-weak,
-    .revision-log,
-    .mock-analysis,
-    .mistake-log,
-    .rules,
-    .daily-output {
-        padding: 22px 20px;
-    }
-}
-
-
-/* ===== FIX TABLET ALIGNMENT (820px–1024px) ===== */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .quick-access {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-}
-@media (max-width: 1024px) and (min-width: 769px) {
-    .quick-access {
-        gap: 24px;
-    }
-}
-
-.quick-access {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    padding: 40px 60px;
-    justify-items: center;
-}
-
-@media (max-width: 1024px) {
-    .quick-access {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 30px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .quick-access {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    .card {
-        max-height: 420px;
-        overflow-y: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .card {
-        max-height: 420px;
-        overflow-y: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .list {
-        gap: 8px;
-    }
-}
-
-@media (max-width: 480px) {
     .item-btn {
-        font-size: 14px;          /* smaller text */
+        font-size: 14px;
         line-height: 1.25;
         padding: 8px 10px;
-        white-space: normal;      /* allow wrapping */
-        word-break: normal;       /* do NOT split words */
+        white-space: normal;
+        word-break: normal;
         text-align: center;
     }
-}
 
-@media (max-width: 480px) {
-    .item-btn {
-        font-size: 14px;          /* smaller text */
-        line-height: 1.25;
-        padding: 8px 10px;
-        white-space: normal;      /* allow wrapping */
-        word-break: normal;       /* do NOT split words */
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        margin: 12px;
+    .item-btn,
+    .item-btn a {
+        font-size: 14px;
+        line-height: 1.2;
     }
 
     .quick-access {
         padding: 20px 12px;
     }
-}
 
-
-
-@media (max-width: 480px) {
-    .item-btn,
-    .item-btn a {
-        font-size: 14px;
-        line-height: 1.2;
-        
+    body {
+        margin: 12px;
     }
 }
 
-.card {
-    scrollbar-width: none;       /* Firefox */
+/* ============ EXTRA SMALL DEVICES (Below 380px) ============ */
+@media (max-width: 380px) {
+    h2 {
+        font-size: 28px !important;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .hero {
+        padding: 30px 15px;
+        gap: 15px;
+    }
+
+    .hero-text h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .progress-card {
+        width: 100%;
+        max-width: 260px;
+        padding: 15px;
+    }
+
+    .card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .item-btn {
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+
+    body {
+        margin: 10px;
+    }
+
+    #nav-bar {
+        margin: 10px auto;
+    }
 }
 
-.card::-webkit-scrollbar {
-    display: none;               /* Chrome, Edge */
+/* ============ TARGETED PHONE OVERRIDE: 360x800 ============ */
+@media (max-width: 360px) and (max-height: 820px) {
+    /* Slightly tighter grid rows so 2x2 fits on short screens */
+    .quick-access {
+        gap: 8px;
+        grid-auto-rows: minmax(90px, auto);
+        padding: 10px;
+    }
+
+    .quick-access > * {
+        padding: 8px;
+    }
+
+    .quick-access .card h3,
+    .quick-access h3 {
+        font-size: 13px;
+    }
+
+    .quick-access .card p,
+    .quick-access p {
+        font-size: 12px;
+    }
+
+    .quick-access .item-btn {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .hero-text h2 { font-size: 32px; }
+    .hero-text p { font-size: 15px; }
+
+    .progress-card { padding: 10px; }
+
+    /* reduce vertical spacing site-wide slightly on this viewport */
+    .section-divider { margin: 40px auto; }
+    .weekly-weak,
+    .revision-log,
+    .mock-analysis {
+        padding: 14px 12px;
+    }
+
+    body { margin: 8px; }
 }
+

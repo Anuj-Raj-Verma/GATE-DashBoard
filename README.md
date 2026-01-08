@@ -14,57 +14,59 @@ The project is intentionally framework-free to strengthen core front-end fundame
 
 ✨ Features
 
--Syllabus Section
+Syllabus Section
 
- --Subject-wise syllabus buttons
- 
- --Clean, consistent layout across devices
- 
--PYQs (Previous Year Questions)
+Subject-wise syllabus buttons
 
- --Organized by subject and year
- 
- --Quick access without clutter
- 
--Previous Papers
+Clean, consistent layout across devices
 
- --Year-wise paper listing
- 
- --Simple navigation
- 
--Lectures Section
+PYQs (Previous Year Questions)
 
- --Subject-based lecture access
+Organized by subject and year
 
--Today’s Focus
+Quick access without clutter
 
- --Add and track daily study goals
- 
- --Visual progress indicator
+Previous Papers
 
--Revision & Weak Area Logs
+Year-wise paper listing
 
- --Track weak topics
- 
- --Maintain revision history
+Simple navigation
 
--Responsive Design
+Lectures Section
 
- --Optimized for mobile phones, tablets, and laptops
- 
- --Tablet layout uses a 2×2 card grid
- 
- --Mobile layout avoids long, cluttered scrolling
+Subject-based lecture access
 
--Dark Mode
+Today’s Focus
 
- --Toggle-based dark theme for comfortable long study sessions
+Add and track daily study goals
+
+Visual progress indicator
+
+Revision & Weak Area Logs
+
+Track weak topics
+
+Maintain revision history
+
+Responsive Design
+
+Optimized for mobile phones, tablets, and laptops
+
+Tablet layout uses a 2×2 card grid
+
+Mobile layout avoids long, cluttered scrolling
+
+Dark Mode
+
+Toggle-based dark theme for comfortable long study sessions
 
 🛠️ Tech Stack
 
-- HTML5 – Semantic structure
-- CSS3 – Custom styling, Grid, Flexbox, media queries
-- JavaScript (Vanilla) – Interactivity (toggles, buttons, UI state)
+HTML5 – Semantic structure
+
+CSS3 – Custom styling, Grid, Flexbox, media queries
+
+JavaScript (Vanilla) – Interactivity (toggles, buttons, UI state)
 
 No frameworks. No libraries. No dependencies.
 
@@ -72,9 +74,11 @@ No frameworks. No libraries. No dependencies.
 
 Tested on:
 
-- Mobile devices (Android & iOS)
-- Tablets
-- Laptops and standard desktop screens
+Mobile devices (Android & iOS)
+
+Tablets
+
+Laptops and standard desktop screens
 
 The design prioritizes real-world usage scenarios (students on phones and laptops).
 
@@ -83,10 +87,13 @@ The design prioritizes real-world usage scenarios (students on phones and laptop
 
 This project was built to:
 
-- Solve a real personal problem (GATE preparation organization)
-- Strengthen core front-end skills
-- Practice responsive design without frameworks
-- Create a maintainable and extensible UI
+Solve a real personal problem (GATE preparation organization)
+
+Strengthen core front-end skills
+
+Practice responsive design without frameworks
+
+Create a maintainable and extensible UI
 
 It is not intended as a commercial product.
 
@@ -95,9 +102,12 @@ It is not intended as a commercial product.
 This project is licensed under the MIT License.
 
 You are free to:
-- Use the code
-- Modify it
-- Share it
+
+Use the code
+
+Modify it
+
+Share it
 
 As long as proper credit is given.
 

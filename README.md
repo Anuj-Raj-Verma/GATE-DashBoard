@@ -16,49 +16,49 @@ ________________________________________
 ✨ Features
 •	Syllabus Section
 
-  o	Subject-wise syllabus buttons
+    o	Subject-wise syllabus buttons
   
-  o	Clean, consistent layout across devices
+    o	Clean, consistent layout across devices
   
 •	PYQs (Previous Year Questions)
 
-  o	Organized by subject and year
+    o	Organized by subject and year
   
-  o	Quick access without clutter
+    o	Quick access without clutter
   
 •	Previous Papers
 
-  o	Year-wise paper listing
+    o	Year-wise paper listing
   
-  o	Simple navigation
+    o	Simple navigation
   
 •	Lectures Section
 
-  o	Subject-based lecture access
+    o	Subject-based lecture access
   
 •	Today’s Focus
 
-  o	Add and track daily study goals
+    o	Add and track daily study goals
   
-  o	Visual progress indicator
+    o	Visual progress indicator
   
 •	Revision & Weak Area Logs
 
-  o	Track weak topics
+    o	Track weak topics
   
-  o	Maintain revision history
+    o	Maintain revision history
   
 •	Responsive Design
 
-  o	Optimized for mobile phones, tablets, and laptops
+    o	Optimized for mobile phones, tablets, and laptops
   
-  o	Tablet layout uses a 2×2 card grid
+    o	Tablet layout uses a 2×2 card grid
   
-  o	Mobile layout avoids long, cluttered scrolling
+    o	Mobile layout avoids long, cluttered scrolling
   
 •	Dark Mode
 
-  o	Toggle-based dark theme for comfortable long study sessions
+    o	Toggle-based dark theme for comfortable long study sessions
 ________________________________________
 🛠️ Tech Stack
 •	HTML5 – Semantic structure

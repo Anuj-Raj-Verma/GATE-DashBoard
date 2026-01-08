@@ -15,34 +15,49 @@ The project is intentionally framework-free to strengthen core front-end fundame
 ✨ Features
 
 -Syllabus Section
+
  --Subject-wise syllabus buttons
+ 
  --Clean, consistent layout across devices
  
 -PYQs (Previous Year Questions)
+
  --Organized by subject and year
+ 
  --Quick access without clutter
  
 -Previous Papers
+
  --Year-wise paper listing
+ 
  --Simple navigation
  
 -Lectures Section
+
  --Subject-based lecture access
 
 -Today’s Focus
+
  --Add and track daily study goals
+ 
  --Visual progress indicator
 
 -Revision & Weak Area Logs
+
  --Track weak topics
+ 
  --Maintain revision history
 
 -Responsive Design
+
  --Optimized for mobile phones, tablets, and laptops
+ 
  --Tablet layout uses a 2×2 card grid
+ 
  --Mobile layout avoids long, cluttered scrolling
 
 -Dark Mode
+
  --Toggle-based dark theme for comfortable long study sessions
 
 🛠️ Tech Stack

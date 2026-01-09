@@ -1,3 +1,68 @@
+/* ================= RESPONSIVE: Consolidated & Readable ================= */
+/* Mobile/tablet friendly adjustments for lecture pages */
+@media (max-width: 900px) {
+    .lectures-layout {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 0 12px;
+        margin: 20px auto 40px;
+    }
+
+    .lecture-sidebar {
+        order: 2;
+        width: 100%;
+        height: auto;
+        padding: 18px;
+    }
+
+    .lecture-player {
+        order: 1;
+        width: 100%;
+        padding: 16px;
+    }
+
+    .video-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .video-btn {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    #videoPlayer {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .lectures-header {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .video-btn {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .player-placeholder {
+        padding: 60px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-btn { font-size: 12px; padding: 8px; }
+    .lectures-header h1 { font-size: 20px; }
+    .lectures-header p  { font-size: 13px; }
+}
+
 /* ================= BASE THEME ================= */
 :root {
     --bg-main: #f6f7fb;

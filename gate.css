@@ -67,6 +67,40 @@ button:hover a {
 }
 
 
+/* ================= FOCUS STRIP: DAILY PROGRESS INDICATOR ================= */
+/* Purpose: Top strip that changes color based on daily task completion status */
+
+#focusStrip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    z-index: 10000;
+    transition: background-color 0.4s ease;
+    background-color: #9ca3af; /* Default: idle/gray */
+}
+
+/* State 1: No tasks planned (gray/neutral) */
+#focusStrip.focus-idle {
+    background-color: #9ca3af;
+}
+
+/* State 2: Tasks planned but none started (blue) */
+#focusStrip.focus-planned {
+    background-color: #3b82f6;
+}
+
+/* State 3: Some tasks completed (orange) */
+#focusStrip.focus-progress {
+    background-color: #f97316;
+}
+
+/* State 4: All tasks completed (green) */
+#focusStrip.focus-complete {
+    background-color: #10b981;
+}
+
 /* ================= BUTTON STYLES ================= */
 .focus-btn {
     margin-left: 160px;
@@ -219,6 +253,16 @@ button:hover a {
     color: var(--text-main);
     box-shadow: 0 10px 28px rgba(10, 23, 78, 0.25);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Fix scrolling behavior: proper flex layout */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    /* Mobile/tablet: scrollable cards */
+    max-height: 520px;
+    overflow-y: auto;
+    /* Hide scrollbar but keep smooth scrolling */
+    scrollbar-width: none;
 }
 
 .card:hover {
@@ -229,12 +273,12 @@ button:hover a {
 .card h3 {
     font-size: 26px;
     margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-soft);
+    flex-shrink: 0;
 }
 
-.card {
-    scrollbar-width: none;
-}
-
+/* Hide scrollbar for webkit browsers while keeping smooth scroll */
 .card::-webkit-scrollbar {
     display: none;
 }
@@ -244,6 +288,8 @@ button:hover a {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex: 1;
+    min-height: 0;
 }
 
 .item-btn {
@@ -378,7 +424,7 @@ button:hover a {
     width: 4px;
     height: 100%;
     background: var(--bg-accent);
-    transition: width 0.25s ease;
+    transition: width 0.25s ease, background-color 0.3s ease;
 }
 
 body.dark .weekly-weak::before,
@@ -399,6 +445,24 @@ body.dark .daily-output::before {
     width: 10px;
 }
 
+/* ================= WEAK AREAS COLOR-CODED STATUS ================= */
+/* Color indicator based on days remaining until Sunday */
+
+/* Green: 5-6 days left (safe) */
+.weekly-weak.weak-safe::before {
+    background-color: #10b981;
+}
+
+/* Orange: 3-4 days left (warning) */
+.weekly-weak.weak-warning::before {
+    background-color: #f97316;
+}
+
+/* Red: 1-2 days left (critical) */
+.weekly-weak.weak-critical::before {
+    background-color: #ef4444;
+}
+
 /* ================= LISTS ================= */
 #weakList,
 #revisionList,
@@ -407,6 +471,56 @@ body.dark .daily-output::before {
 .rules ul {
     list-style: none;
     margin-bottom: 18px;
+}
+
+/* Revision list: scrollable only when exceeds 5 items (5 * ~30px per item) */
+#revisionList {
+    max-height: 165px; /* ~5.5 items max before scrolling */
+    overflow-y: auto;
+    padding-right: 8px; /* Space for scrollbar */
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-accent) transparent;
+}
+
+/* Hide scrollbar for webkit browsers in revision list */
+#revisionList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#revisionList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#revisionList::-webkit-scrollbar-thumb {
+    background: var(--text-accent);
+    border-radius: 3px;
+    opacity: 0.5;
+}
+
+/* Mistake list: scrollable only when exceeds 5 items (5 * ~30px per item) */
+#mistakeList {
+    max-height: 165px; /* ~5.5 items max before scrolling */
+    overflow-y: auto;
+    padding-right: 8px; /* Space for scrollbar */
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--text-accent) transparent;
+}
+
+/* Hide scrollbar for webkit browsers in mistake list */
+#mistakeList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#mistakeList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#mistakeList::-webkit-scrollbar-thumb {
+    background: var(--text-accent);
+    border-radius: 3px;
+    opacity: 0.5;
 }
 
 #weakList li,
@@ -723,10 +837,22 @@ button:hover a {
     border: none;
     cursor: pointer;
     text-align: center;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.25;
+    font-weight: 500;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
+    hyphens: auto;
 }
 
 .syllabus-card .item-btn a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     color: inherit;
@@ -982,6 +1108,13 @@ button:hover a {
     .hero {
         padding: 70px 80px;
     }
+
+    /* Desktop: cards extend naturally, no scrolling */
+    .card {
+        max-height: none;
+        overflow-y: visible;
+        min-height: auto;
+    }
 }
 
 /* ============ LARGE DEVICES (1025px to 1199px) ============ */
@@ -994,6 +1127,13 @@ button:hover a {
 
     .hero {
         padding: 60px 60px;
+    }
+
+    /* Desktop: cards extend naturally, no scrolling */
+    .card {
+        max-height: none;
+        overflow-y: visible;
+        min-height: auto;
     }
 }
 
@@ -1020,6 +1160,9 @@ button:hover a {
     .card {
         width: 100%;
         max-width: 300px;
+        max-height: none;
+        overflow-y: visible;
+        min-height: auto;
     }
 
     .menu-toggle {
@@ -1086,8 +1229,9 @@ button:hover a {
     .card {
         width: 100%;
         max-width: 280px;
-        max-height: 420px;
+        max-height: 400px;
         overflow-y: auto;
+        scroll-behavior: smooth;
     }
 
     .list {
@@ -1202,30 +1346,63 @@ button:hover a {
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 8px;
         padding: 12px;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Hide scrollbar Firefox */
+    }
+
+    .quick-access .card::-webkit-scrollbar {
+        display: none; /* Hide scrollbar Chrome/Safari */
+    }
+
+    .quick-access .card h3 {
+        flex-shrink: 0;
+        font-size: 14px;
+    }
+
+    .quick-access .list {
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
     }
 
     /* Buttons inside quick-access should be compact and wrap safely */
     .quick-access .item-btn {
-        font-size: 13px;
-        padding: 8px 10px;
+        font-size: 12px;
+        padding: 6px 8px;
         line-height: 1.15;
         white-space: normal;
-        overflow-wrap: anywhere;
-        hyphens: auto;
+        word-break: break-word;
+        hyphens: none;
+        overflow-wrap: break-word;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         text-align: center;
         border-radius: 8px;
+        min-height: 36px;
     }
 
     /* Ensure anchors inside buttons don't overflow */
     .quick-access .item-btn a {
-        display: block;
-        width: 100%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           width: 100%;
+           height: 100%;
+    }
+
+    /* Tweak: ensure very long labels (last button) fit and center on small screens
+       Adjust only the last quick-access button in syllabus/lectures to avoid layout shifts */
+    .syllabus-card .item-btn:last-child a,
+    .pyqs-card .item-btn:last-child a,
+    .lecture-card .item-btn:last-child a {
+        font-size: 12px;
+        padding: 4px 8px;
+        line-height: 1.05;
     }
 
     /* Smaller headings/text inside quick-access cards */
@@ -1361,11 +1538,20 @@ button:hover a {
     .card {
         width: 100%;
         padding: 15px;
+        scrollbar-width: none; /* Hide scrollbar Firefox */
+    }
+
+    .card::-webkit-scrollbar {
+        display: none; /* Hide scrollbar Chrome/Safari */
     }
 
     .item-btn {
-        font-size: 13px;
+        font-size: 12px;
         padding: 6px 8px;
+        white-space: normal;
+        word-break: break-word;
+        hyphens: none;
+        line-height: 1.2;
     }
 
     body {
@@ -1401,8 +1587,20 @@ button:hover a {
     }
 
     .quick-access .item-btn {
-        font-size: 12px;
-        padding: 6px 8px;
+        font-size: 11px;
+        padding: 5px 6px;
+        white-space: normal;
+        word-break: break-word;
+        hyphens: none;
+        line-height: 1.15;
+    }
+
+    .card {
+        scrollbar-width: none;
+    }
+
+    .card::-webkit-scrollbar {
+        display: none;
     }
 
     .hero-text h2 { font-size: 32px; }

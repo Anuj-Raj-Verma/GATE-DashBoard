@@ -77,12 +77,111 @@ if (dailyData.date !== todayKey) {
 /* Render task list on UI */
 function renderTasks() {
     taskList.innerHTML = "";
-    dailyData.tasks.forEach(t => {
+    dailyData.tasks.forEach((t, index) => {
         const li = document.createElement("li");
-        li.textContent = "• " + t;
+        li.style.cssText = `
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 8px 0;
+            font-size: 18px;
+            color: #ffffff;
+        `;
+
+        // Text span
+        const textSpan = document.createElement("span");
+        textSpan.textContent = "• " + t;
+        textSpan.style.flex = "1";
+
+        // Button container
+        const buttonContainer = document.createElement("div");
+        buttonContainer.style.cssText = `
+            display: flex;
+            gap: 6px;
+            margin-left: 8px;
+        `;
+
+        // Edit button (light blue for Today's Focus)
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "✎";
+        editBtn.style.cssText = `
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        `;
+        editBtn.addEventListener("mouseover", () => {
+            editBtn.style.backgroundColor = "rgba(255, 255, 255, 0.4)";
+        });
+        editBtn.addEventListener("mouseout", () => {
+            editBtn.style.backgroundColor = "rgba(255, 255, 255, 0.25)";
+        });
+        editBtn.addEventListener("click", () => editTask(index));
+
+        // Delete button (light red for Today's Focus)
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "✕";
+        deleteBtn.style.cssText = `
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: rgba(239, 68, 68, 0.6);
+            color: #ffffff;
+            border: 1px solid rgba(239, 68, 68, 0.8);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        `;
+        deleteBtn.addEventListener("mouseover", () => {
+            deleteBtn.style.backgroundColor = "rgba(239, 68, 68, 0.9)";
+        });
+        deleteBtn.addEventListener("mouseout", () => {
+            deleteBtn.style.backgroundColor = "rgba(239, 68, 68, 0.6)";
+        });
+        deleteBtn.addEventListener("click", () => deleteTask(index));
+
+        buttonContainer.appendChild(editBtn);
+        buttonContainer.appendChild(deleteBtn);
+        li.appendChild(textSpan);
+        li.appendChild(buttonContainer);
         taskList.appendChild(li);
     });
     taskInfo.textContent = `${dailyData.tasks.length} / 3 tasks set for today`;
+}
+
+/* Edit task */
+function editTask(index) {
+    const currentTask = dailyData.tasks[index];
+    const newTask = prompt("Edit task:", currentTask);
+    
+    if (newTask === null) return; // User cancelled
+    
+    const trimmedTask = newTask.trim();
+    if (!trimmedTask) {
+        alert("Please enter a valid task");
+        return;
+    }
+    
+    if (trimmedTask === currentTask) {
+        return; // No change
+    }
+    
+    dailyData.tasks[index] = trimmedTask;
+    localStorage.setItem("dailyTasks", JSON.stringify(dailyData));
+    renderTasks();
+}
+
+/* Delete task */
+function deleteTask(index) {
+    if (!confirm("Delete this task?")) return;
+    
+    dailyData.tasks.splice(index, 1);
+    localStorage.setItem("dailyTasks", JSON.stringify(dailyData));
+    renderTasks();
 }
 
 /* Add new task (max 3 per day) */
@@ -145,11 +244,84 @@ function daysPassedInWeek() {
 /* Render weak areas with age-based color coding */
 function renderWeakAreas() {
     weakList.innerHTML = "";
-    weakData.topics.forEach(item => {
+    weakData.topics.forEach((item, index) => {
         const li = document.createElement("li");
+        li.style.cssText = `
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 8px 0;
+            font-size: 16px;
+        `;
+
         const age = Math.floor((today - new Date(item.addedOn)) / MS_PER_DAY);
 
-        li.textContent = "• " + item.text;
+        // Create text span
+        const textSpan = document.createElement("span");
+        textSpan.textContent = "• " + item.text;
+        textSpan.style.flex = "1";
+        
+        // Button container
+        const buttonContainer = document.createElement("div");
+        buttonContainer.style.cssText = `
+            display: flex;
+            gap: 6px;
+            margin-left: 8px;
+        `;
+
+        // Edit button (golden yellow to match weak areas card)
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "✎";
+        editBtn.style.cssText = `
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: var(--text-accent);
+            color: var(--bg-accent);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        `;
+        editBtn.addEventListener("mouseover", () => {
+            editBtn.style.opacity = "0.8";
+            editBtn.style.transform = "scale(1.05)";
+        });
+        editBtn.addEventListener("mouseout", () => {
+            editBtn.style.opacity = "1";
+            editBtn.style.transform = "scale(1)";
+        });
+        editBtn.addEventListener("click", () => editWeakArea(index));
+
+        // Delete button (red)
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "✕";
+        deleteBtn.style.cssText = `
+            padding: 4px 8px;
+            font-size: 12px;
+            background-color: #ef4444;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        `;
+        deleteBtn.addEventListener("mouseover", () => {
+            deleteBtn.style.opacity = "0.8";
+            deleteBtn.style.transform = "scale(1.05)";
+        });
+        deleteBtn.addEventListener("mouseout", () => {
+            deleteBtn.style.opacity = "1";
+            deleteBtn.style.transform = "scale(1)";
+        });
+        deleteBtn.addEventListener("click", () => deleteWeakArea(index));
+
+        buttonContainer.appendChild(editBtn);
+        buttonContainer.appendChild(deleteBtn);
+        li.appendChild(textSpan);
+        li.appendChild(buttonContainer);
 
         // Color coding: 5+ days = critical (red), 3+ days = warning (orange)
         if (age >= 5) {
@@ -196,6 +368,37 @@ function renderWeakAreas() {
         // No weak areas in list
         weakStatus.textContent = "No weak areas identified yet.";
     }
+}
+
+/* Edit weak area */
+function editWeakArea(index) {
+    const currentText = weakData.topics[index].text;
+    const newText = prompt("Edit weak area:", currentText);
+    
+    if (newText === null) return; // User cancelled
+    
+    const trimmedText = newText.trim();
+    if (!trimmedText) {
+        alert("Please enter a valid weak area");
+        return;
+    }
+    
+    if (trimmedText === currentText) {
+        return; // No change
+    }
+    
+    weakData.topics[index].text = trimmedText;
+    localStorage.setItem("weeklyWeak", JSON.stringify(weakData));
+    renderWeakAreas();
+}
+
+/* Delete weak area */
+function deleteWeakArea(index) {
+    if (!confirm("Delete this weak area?")) return;
+    
+    weakData.topics.splice(index, 1);
+    localStorage.setItem("weeklyWeak", JSON.stringify(weakData));
+    renderWeakAreas();
 }
 
 /* Add new weak area (max 5 per week) */
@@ -332,11 +535,12 @@ renderMock();
 /* ================= MISTAKE LOG: COLLECT LEARNING POINTS ================= */
 /* Purpose: Maintain a growing list of mistakes for future reference
    Features: Unlimited entries, no auto-reset
-   Related HTML elements: mistakeList, mistakeInput, addMistakeBtn */
+   Related HTML elements: mistakeList, mistakeInput, addMistakeBtn, clearMistakeBtn */
 
-const mistakeList   = document.getElementById("mistakeList");
-const mistakeInput  = document.getElementById("mistakeInput");
-const addMistakeBtn = document.getElementById("addMistakeBtn");
+const mistakeList    = document.getElementById("mistakeList");
+const mistakeInput   = document.getElementById("mistakeInput");
+const addMistakeBtn  = document.getElementById("addMistakeBtn");
+const clearMistakeBtn = document.getElementById("clearMistakeBtn");
 
 let mistakes = JSON.parse(localStorage.getItem("mistakes")) || [];
 
@@ -358,6 +562,14 @@ addMistakeBtn.addEventListener("click", () => {
     mistakes.push(m);
     localStorage.setItem("mistakes", JSON.stringify(mistakes));
     mistakeInput.value = "";
+    renderMistakes();
+});
+
+/* Clear entire mistake history (with confirmation) */
+clearMistakeBtn.addEventListener("click", () => {
+    if (!confirm("Clear entire mistake log?")) return;
+    mistakes = [];
+    localStorage.removeItem("mistakes");
     renderMistakes();
 });
 

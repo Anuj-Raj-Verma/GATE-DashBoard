@@ -445,6 +445,17 @@ body.dark .daily-output::before {
     width: 10px;
 }
 
+/* Dark mode hover states for left border expansion */
+body.dark .weekly-weak:hover::before,
+body.dark .revision-log:hover::before,
+body.dark .mock-analysis:hover::before,
+body.dark .mistake-log:hover::before,
+body.dark .rules:hover::before,
+body.dark .daily-output:hover::before {
+    width: 10px;
+    background: var(--text-accent);
+}
+
 /* ================= WEAK AREAS COLOR-CODED STATUS ================= */
 /* Color indicator based on days remaining until Sunday */
 
@@ -460,6 +471,19 @@ body.dark .daily-output::before {
 
 /* Red: 1-2 days left (critical) */
 .weekly-weak.weak-critical::before {
+    background-color: #ef4444;
+}
+
+/* Dark mode: Weak area color-coded status */
+body.dark .weekly-weak.weak-safe::before {
+    background-color: #10b981;
+}
+
+body.dark .weekly-weak.weak-warning::before {
+    background-color: #f97316;
+}
+
+body.dark .weekly-weak.weak-critical::before {
     background-color: #ef4444;
 }
 
@@ -607,6 +631,11 @@ body.dark .daily-output::before {
 }
 
 #clearRevisionBtn {
+    display: block;
+    margin-top: 12px;
+}
+
+#clearMistakeBtn {
     display: block;
     margin-top: 12px;
 }

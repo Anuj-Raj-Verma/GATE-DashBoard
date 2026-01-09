@@ -77,29 +77,39 @@ if (dailyData.date !== todayKey) {
 /* Render task list on UI */
 function renderTasks() {
     taskList.innerHTML = "";
+    const isMobile = window.innerWidth < 600;
+    
     dailyData.tasks.forEach((t, index) => {
         const li = document.createElement("li");
         li.style.cssText = `
             display: flex;
+            flex-direction: ${isMobile ? 'column' : 'row'};
             justify-content: space-between;
-            align-items: center;
+            align-items: ${isMobile ? 'stretch' : 'center'};
             width: 100%;
             padding: 8px 0;
             font-size: 18px;
             color: #ffffff;
+            gap: ${isMobile ? '6px' : '0'};
         `;
 
         // Text span
         const textSpan = document.createElement("span");
         textSpan.textContent = "• " + t;
-        textSpan.style.flex = "1";
+        textSpan.style.cssText = `
+            flex: 1;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            ${isMobile ? 'padding: 4px 0;' : ''}
+        `;
 
         // Button container
         const buttonContainer = document.createElement("div");
         buttonContainer.style.cssText = `
             display: flex;
             gap: 6px;
-            margin-left: 8px;
+            ${isMobile ? 'width: 100%; justify-content: flex-end;' : 'margin-left: 8px;'}
+            flex-shrink: 0;
         `;
 
         // Edit button (light blue for Today's Focus)
@@ -107,13 +117,15 @@ function renderTasks() {
         editBtn.textContent = "✎";
         editBtn.style.cssText = `
             padding: 4px 8px;
-            font-size: 12px;
+            font-size: ${isMobile ? '11px' : '12px'};
             background-color: rgba(255, 255, 255, 0.25);
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
         `;
         editBtn.addEventListener("mouseover", () => {
             editBtn.style.backgroundColor = "rgba(255, 255, 255, 0.4)";
@@ -128,13 +140,15 @@ function renderTasks() {
         deleteBtn.textContent = "✕";
         deleteBtn.style.cssText = `
             padding: 4px 8px;
-            font-size: 12px;
+            font-size: ${isMobile ? '11px' : '12px'};
             background-color: rgba(239, 68, 68, 0.6);
             color: #ffffff;
             border: 1px solid rgba(239, 68, 68, 0.8);
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
         `;
         deleteBtn.addEventListener("mouseover", () => {
             deleteBtn.style.backgroundColor = "rgba(239, 68, 68, 0.9)";
@@ -244,15 +258,19 @@ function daysPassedInWeek() {
 /* Render weak areas with age-based color coding */
 function renderWeakAreas() {
     weakList.innerHTML = "";
+    const isMobile = window.innerWidth < 600;
+    
     weakData.topics.forEach((item, index) => {
         const li = document.createElement("li");
         li.style.cssText = `
             display: flex;
+            flex-direction: ${isMobile ? 'column' : 'row'};
             justify-content: space-between;
-            align-items: center;
+            align-items: ${isMobile ? 'stretch' : 'center'};
             width: 100%;
             padding: 8px 0;
             font-size: 16px;
+            gap: ${isMobile ? '6px' : '0'};
         `;
 
         const age = Math.floor((today - new Date(item.addedOn)) / MS_PER_DAY);
@@ -260,14 +278,20 @@ function renderWeakAreas() {
         // Create text span
         const textSpan = document.createElement("span");
         textSpan.textContent = "• " + item.text;
-        textSpan.style.flex = "1";
+        textSpan.style.cssText = `
+            flex: 1;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            ${isMobile ? 'padding: 4px 0;' : ''}
+        `;
         
         // Button container
         const buttonContainer = document.createElement("div");
         buttonContainer.style.cssText = `
             display: flex;
             gap: 6px;
-            margin-left: 8px;
+            ${isMobile ? 'width: 100%; justify-content: flex-end;' : 'margin-left: 8px;'}
+            flex-shrink: 0;
         `;
 
         // Edit button (golden yellow to match weak areas card)
@@ -275,7 +299,7 @@ function renderWeakAreas() {
         editBtn.textContent = "✎";
         editBtn.style.cssText = `
             padding: 4px 8px;
-            font-size: 12px;
+            font-size: ${isMobile ? '11px' : '12px'};
             background-color: var(--text-accent);
             color: var(--bg-accent);
             border: none;
@@ -283,6 +307,8 @@ function renderWeakAreas() {
             cursor: pointer;
             transition: all 0.2s ease;
             font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
         `;
         editBtn.addEventListener("mouseover", () => {
             editBtn.style.opacity = "0.8";
@@ -299,7 +325,7 @@ function renderWeakAreas() {
         deleteBtn.textContent = "✕";
         deleteBtn.style.cssText = `
             padding: 4px 8px;
-            font-size: 12px;
+            font-size: ${isMobile ? '11px' : '12px'};
             background-color: #ef4444;
             color: #ffffff;
             border: none;
@@ -307,6 +333,8 @@ function renderWeakAreas() {
             cursor: pointer;
             transition: all 0.2s ease;
             font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
         `;
         deleteBtn.addEventListener("mouseover", () => {
             deleteBtn.style.opacity = "0.8";
